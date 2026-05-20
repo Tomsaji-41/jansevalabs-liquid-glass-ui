@@ -1,0 +1,224 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Fonts */
+  --font-sans: var(--font-jakarta);
+  --font-display: var(--font-instrument);
+  --font-mono: var(--font-mono-default);
+
+  /* Radii */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+
+  /* Shadcn color tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand — Navy */
+  --color-navy-50: #EEF2FF;
+  --color-navy-100: #E0E7FF;
+  --color-navy-200: #C7D2FE;
+  --color-navy-500: #1E3A8A;
+  --color-navy-600: #1E40AF;
+  --color-navy-700: #1D4ED8;
+  --color-navy-900: #0B1F4E;
+  --color-navy-950: #07143A;
+
+  /* Brand — Green (logo primary) */
+  --color-brand-green-50: #F0FFF5;
+  --color-brand-green-100: #DCFCE7;
+  --color-brand-green-300: #6EE37A;
+  --color-brand-green-400: #3ECB57;
+  --color-brand-green-500: #2DB549;
+  --color-brand-green-600: #25A03F;
+  --color-brand-green-700: #1D7D31;
+  --color-brand-green-800: #166126;
+
+  /* Brand — Teal (legacy, kept for backwards compat) */
+  --color-teal-50: #F0FFF5;
+  --color-teal-100: #DCFCE7;
+  --color-teal-300: #6EE37A;
+  --color-teal-400: #3ECB57;
+  --color-teal-500: #2DB549;
+  --color-teal-600: #25A03F;
+  --color-teal-700: #1D7D31;
+  --color-teal-800: #166126;
+
+  /* Brand — Sky */
+  --color-sky-50: #F0F9FF;
+  --color-sky-100: #E0F2FE;
+  --color-sky-400: #38BDF8;
+  --color-sky-500: #0EA5E9;
+  --color-sky-600: #0284C7;
+
+  /* Brand — Orange accent */
+  --color-orange-500: #F97316;
+  --color-orange-600: #EA580C;
+  --color-orange-700: #C2410C;
+
+  /* Surfaces */
+  --color-surface: #F8FAFC;
+  --color-surface-alt: #F1F5F9;
+
+  /* Semantic */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-critical: #DC2626;
+
+  /* Chart */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Light theme — clinical white with teal primary */
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+
+  /* Primary → Logo Green */
+  --primary: #2DB549;
+  --primary-foreground: #FFFFFF;
+
+  /* Secondary → Navy-50 */
+  --secondary: #EEF2FF;
+  --secondary-foreground: #1E3A8A;
+
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+
+  /* Accent → Green-50 */
+  --accent: #F0FFF5;
+  --accent-foreground: #1D7D31;
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #2DB549;
+
+  /* Charts */
+  --chart-1: #2DB549;
+  --chart-2: #F47920;
+  --chart-3: #1E3A8A;
+  --chart-4: #0EA5E9;
+  --chart-5: #F59E0B;
+
+  /* Sidebar */
+  --sidebar: #F8FAFC;
+  --sidebar-foreground: #0F172A;
+  --sidebar-primary: #2DB549;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F0FFF5;
+  --sidebar-accent-foreground: #1D7D31;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #2DB549;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, #FFF7F0 0%, #F0FFF5 50%, #FFFBF0 100%);
+  }
+  .bg-teal-gradient {
+    background: linear-gradient(135deg, #3ECB57 0%, #2DB549 100%);
+  }
+  .bg-green-gradient {
+    background: linear-gradient(135deg, #3ECB57 0%, #2DB549 100%);
+  }
+  .bg-orange-gradient {
+    background: linear-gradient(135deg, #F97316 0%, #F47920 100%);
+  }
+  .bg-navy-gradient {
+    background: linear-gradient(135deg, #1E3A8A 0%, #0B1F4E 100%);
+  }
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(15,23,42,0.06), 0 4px 12px rgba(15,23,42,0.04);
+  }
+  .shadow-card-hover {
+    box-shadow: 0 4px 16px rgba(15,23,42,0.10), 0 1px 4px rgba(15,23,42,0.06);
+  }
+  .shadow-teal-glow {
+    box-shadow: 0 0 24px rgba(45,181,73,0.28);
+  }
+  .shadow-green-glow {
+    box-shadow: 0 0 24px rgba(45,181,73,0.28);
+  }
+  .shadow-orange-glow {
+    box-shadow: 0 0 20px rgba(244,121,32,0.25);
+  }
+  
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-20px) scale(1.05); }
+}
