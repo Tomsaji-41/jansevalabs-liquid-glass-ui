@@ -37,21 +37,21 @@ export default async function AdminOrdersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[#0B1F4E]">Orders</h1>
-        <p className="text-slate-500 mt-1">Manage and track all patient orders.</p>
+        <h1 className="text-2xl font-bold text-white/95">Orders</h1>
+        <p className="text-white/60 mt-1">Manage and track all patient orders.</p>
       </div>
 
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardContent className="p-0">
           {allOrders.length === 0 ? (
-            <p className="text-sm text-slate-400 px-5 py-8">No orders yet.</p>
+            <p className="text-sm text-white/50 px-5 py-8">No orders yet.</p>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-border bg-surface">
+                  <tr className="border-b border-white/20 relative z-10">
                     {["Order", "Patient", "Tests", "Mode", "Payment", "Status", "Date", "Amount", ""].map((h) => (
-                      <th key={h} className={`px-4 py-3 text-left font-semibold text-slate-500 text-xs uppercase tracking-wide ${h === "" ? "text-right" : ""}`}>
+                      <th key={h} className={`px-4 py-3 text-left font-semibold text-white/60 text-xs uppercase tracking-wide ${h === "" ? "text-right" : ""}`}>
                         {h}
                       </th>
                     ))}
@@ -64,20 +64,20 @@ export default async function AdminOrdersPage() {
                       ?.map((i) => i.name)
                       .join(", ") ?? "—";
                     return (
-                      <tr key={order.id} className="hover:bg-surface/50 transition-colors">
-                        <td className="px-4 py-3.5 font-mono text-xs font-semibold text-[#0B1F4E]">
+                      <tr key={order.id} className="hover:relative z-10/50 transition-colors">
+                        <td className="px-4 py-3.5 font-mono text-xs font-semibold text-white/95">
                           #{order.orderNumber}
                         </td>
                         <td className="px-4 py-3.5">
-                          <p className="font-medium text-slate-700">{order.patientName ?? "—"}</p>
-                          <p className="text-xs text-slate-400 font-mono">{order.patientMobile ?? ""}</p>
+                          <p className="font-medium text-white/80">{order.patientName ?? "—"}</p>
+                          <p className="text-xs text-white/50 font-mono">{order.patientMobile ?? ""}</p>
                         </td>
-                        <td className="px-4 py-3.5 text-slate-500 text-xs max-w-[140px] truncate">{itemNames}</td>
-                        <td className="px-4 py-3.5 text-xs text-slate-500 capitalize">{order.collectionMode}</td>
+                        <td className="px-4 py-3.5 text-white/60 text-xs max-w-[140px] truncate">{itemNames}</td>
+                        <td className="px-4 py-3.5 text-xs text-white/60 capitalize">{order.collectionMode}</td>
                         <td className="px-4 py-3.5">
                           <Badge className={`border text-xs ${
                             order.paymentStatus === "paid"
-                              ? "bg-[#F0FFF5] text-[#1D7D31] border-[#2DB549]/20"
+                              ? "bg-[#2DB549]/10 text-[#1D7D31] border-[#2DB549]/20"
                               : order.paymentStatus === "failed"
                               ? "bg-red-50 text-red-700 border-red-100"
                               : "bg-amber-50 text-amber-700 border-amber-100"
@@ -88,10 +88,10 @@ export default async function AdminOrdersPage() {
                         <td className="px-4 py-3.5">
                           <Badge className={`border text-xs ${st.class}`}>{st.label}</Badge>
                         </td>
-                        <td className="px-4 py-3.5 text-xs text-slate-500">
+                        <td className="px-4 py-3.5 text-xs text-white/60">
                           {order.createdAt ? formatDate(order.createdAt) : "—"}
                         </td>
-                        <td className="px-4 py-3.5 font-semibold text-slate-700">{formatPrice(order.total)}</td>
+                        <td className="px-4 py-3.5 font-semibold text-white/80">{formatPrice(order.total)}</td>
                         <td className="px-4 py-3.5 text-right">
                           <Link
                             href={`/admin/orders/${order.id}`}

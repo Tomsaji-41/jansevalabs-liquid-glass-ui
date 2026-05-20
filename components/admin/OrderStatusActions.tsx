@@ -54,7 +54,7 @@ export default function OrderStatusActions({ orderId, currentStatus }: Props) {
           key={step}
           onClick={() => update(step)}
           disabled={pending !== null}
-          className="px-4 py-2 rounded-xl border border-[#1E3A8A]/30 text-sm font-semibold text-[#1E3A8A] bg-white hover:bg-navy-50 transition-colors disabled:opacity-50 flex items-center gap-2"
+          className="px-4 py-2 rounded-xl border border-[#1E3A8A]/30 text-sm font-semibold text-[#1E3A8A] bg-white/5 backdrop-blur-md hover:bg-navy-50 transition-colors disabled:opacity-50 flex items-center gap-2"
         >
           {pending === step && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
           Mark as {STATUS_LABELS[step]}
@@ -64,7 +64,7 @@ export default function OrderStatusActions({ orderId, currentStatus }: Props) {
         <button
           onClick={() => update("cancelled")}
           disabled={pending !== null}
-          className="px-4 py-2 rounded-xl border border-red-200 text-sm font-semibold text-red-600 bg-white hover:bg-red-50 transition-colors disabled:opacity-50 flex items-center gap-2"
+          className="px-4 py-2 rounded-xl border border-red-200 text-sm font-semibold text-red-600 bg-white/5 backdrop-blur-md hover:bg-red-50 transition-colors disabled:opacity-50 flex items-center gap-2"
         >
           {pending === "cancelled" && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
           Cancel Order

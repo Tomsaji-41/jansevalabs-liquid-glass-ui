@@ -12,7 +12,7 @@ export default function DashboardLoading() {
       {/* Stat cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {Array.from({ length: 4 }).map((_, i) => (
-          <Card key={i} className="border-border shadow-card">
+          <Card key={i} className="border-white/20 shadow-xl">
             <CardContent className="p-5">
               <Skeleton className="w-10 h-10 rounded-xl mb-3" />
               <Skeleton className="h-7 w-20 mb-1" />
@@ -23,13 +23,13 @@ export default function DashboardLoading() {
       </div>
 
       {/* Recent orders table */}
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardHeader>
           <Skeleton className="h-5 w-32" />
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            <div className="grid grid-cols-6 gap-4 pb-3 border-b border-border">
+            <div className="grid grid-cols-6 gap-4 pb-3 border-b border-white/20">
               {Array.from({ length: 6 }).map((_, i) => (
                 <Skeleton key={i} className="h-3 w-full" />
               ))}

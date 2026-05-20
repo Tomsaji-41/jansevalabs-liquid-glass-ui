@@ -12,7 +12,7 @@ export default function PatientsLoading() {
       {/* Stat cards */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
         {Array.from({ length: 3 }).map((_, i) => (
-          <Card key={i} className="border-border shadow-card">
+          <Card key={i} className="border-white/20 shadow-xl">
             <CardContent className="p-5">
               <Skeleton className="h-7 w-16 mb-1" />
               <Skeleton className="h-3 w-28" />
@@ -22,13 +22,13 @@ export default function PatientsLoading() {
       </div>
 
       {/* Table */}
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardHeader>
           <Skeleton className="h-5 w-28" />
         </CardHeader>
         <CardContent>
           <div className="space-y-1">
-            <div className="grid grid-cols-5 gap-4 pb-3 border-b border-border">
+            <div className="grid grid-cols-5 gap-4 pb-3 border-b border-white/20">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Skeleton key={i} className="h-3 w-full" />
               ))}

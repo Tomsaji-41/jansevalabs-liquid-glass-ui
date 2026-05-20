@@ -32,7 +32,7 @@ export default function CtaBanner() {
             href="tel:+911800000000"
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
-              "border-white/30 text-white hover:bg-white/10 h-12 px-8 text-base bg-transparent flex items-center gap-2"
+              "border-white/30 text-white hover:bg-white/5 backdrop-blur-md/10 h-12 px-8 text-base bg-transparent flex items-center gap-2"
             )}
           >
             <Phone className="w-4 h-4" />

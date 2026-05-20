@@ -110,7 +110,7 @@ const PACKAGES = [
 const colorMap = {
   green: {
     gradient: "from-brand-green-400 to-brand-green-600",
-    iconBg: "bg-[#F0FFF5] border-[#2DB549]/20",
+    iconBg: "bg-[#2DB549]/10 border-[#2DB549]/20",
     iconColor: "text-[#2DB549]",
     check: "text-[#2DB549]",
     btn: "bg-[#2DB549] hover:bg-[#25A03F] text-white shadow-green-glow",
@@ -133,7 +133,7 @@ export default function PackagesPage() {
   const filtered = active === "all" ? PACKAGES : PACKAGES.filter((p) => p.category === active);
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen relative z-10">
       {/* Hero */}
       <div className="bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(45,181,73,0.12),transparent_60%)]" />
@@ -143,14 +143,14 @@ export default function PackagesPage() {
             Save More Together
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-3">Health Packages</h1>
-          <p className="text-slate-400 text-lg max-w-xl">
+          <p className="text-white/50 text-lg max-w-xl">
             Bundled diagnostic tests at significantly lower prices. Ideal for annual checkups and preventive care.
           </p>
           <div className="flex flex-wrap gap-6 mt-8 text-sm">
             {[["6", "Curated packages"], ["500+", "Tests covered"], ["Up to 40%", "Savings vs individual"], ["Home", "Sample collection"]].map(([v, l]) => (
               <div key={l}>
                 <span className="font-bold text-white text-lg">{v}</span>
-                <span className="text-slate-400 ml-1.5">{l}</span>
+                <span className="text-white/50 ml-1.5">{l}</span>
               </div>
             ))}
           </div>
@@ -168,7 +168,7 @@ export default function PackagesPage() {
                 "px-5 py-2 rounded-full text-sm font-semibold border transition-all",
                 active === cat.id
                   ? "bg-[#2DB549] text-white border-[#2DB549] shadow-green-glow"
-                  : "bg-white text-slate-600 border-border hover:border-[#2DB549] hover:text-[#2DB549]"
+                  : "bg-white/5 backdrop-blur-md text-white/70 border-white/20 hover:border-[#2DB549] hover:text-[#2DB549]"
               )}
             >
               {cat.label}
@@ -188,7 +188,7 @@ export default function PackagesPage() {
               <div
                 key={pkg.slug}
                 className={cn(
-                  "bg-white rounded-2xl border border-border shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200 flex flex-col overflow-hidden",
+                  "bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 flex flex-col overflow-hidden",
                   pkg.isPopular && "ring-2 ring-[#F47920]"
                 )}
               >
@@ -208,24 +208,24 @@ export default function PackagesPage() {
                     </Badge>
                   </div>
 
-                  <h3 className="font-bold text-[#0B1F4E] text-lg mb-1">{pkg.name}</h3>
-                  <p className="text-xs text-slate-400 mb-2">{pkg.testsCount} parameters included</p>
-                  <p className="text-sm text-slate-500 mb-5 leading-relaxed">{pkg.description}</p>
+                  <h3 className="font-bold text-white/95 text-lg mb-1">{pkg.name}</h3>
+                  <p className="text-xs text-white/50 mb-2">{pkg.testsCount} parameters included</p>
+                  <p className="text-sm text-white/60 mb-5 leading-relaxed">{pkg.description}</p>
 
                   <ul className="space-y-2 mb-5 flex-1">
                     {pkg.tests.map((t) => (
-                      <li key={t} className="flex items-center gap-2 text-sm text-slate-600">
+                      <li key={t} className="flex items-center gap-2 text-sm text-white/70">
                         <CheckCircle2 className={cn("w-3.5 h-3.5 shrink-0", colors.check)} />
                         {t}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="border-t border-border pt-4 flex items-center justify-between gap-4">
+                  <div className="border-t border-white/20 pt-4 flex items-center justify-between gap-4">
                     <div>
                       <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-[#0B1F4E]">{formatPrice(pkg.discountedPrice)}</span>
-                        <span className="text-sm text-slate-400 line-through">{formatPrice(pkg.price)}</span>
+                        <span className="text-2xl font-bold text-white/95">{formatPrice(pkg.discountedPrice)}</span>
+                        <span className="text-sm text-white/50 line-through">{formatPrice(pkg.price)}</span>
                       </div>
                       <Link href={`/book?package=${pkg.slug}`} className="text-xs text-[#2DB549] hover:underline mt-0.5 inline-block">
                         View details →
@@ -237,7 +237,7 @@ export default function PackagesPage() {
                       className={cn(
                         "shrink-0 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all",
                         inCart
-                          ? "bg-[#F0FFF5] text-[#2DB549] border border-[#2DB549]/30 cursor-default"
+                          ? "bg-[#2DB549]/10 text-[#2DB549] border border-[#2DB549]/30 cursor-default"
                           : colors.btn
                       )}
                     >
@@ -251,14 +251,14 @@ export default function PackagesPage() {
         </div>
 
         {filtered.length === 0 && (
-          <div className="text-center py-20 text-slate-400">No packages in this category.</div>
+          <div className="text-center py-20 text-white/50">No packages in this category.</div>
         )}
 
         {/* CTA */}
-        <div className="mt-12 bg-[#F0FFF5] border border-[#2DB549]/20 rounded-2xl p-8 text-center">
+        <div className="mt-12 bg-[#2DB549]/10 border border-[#2DB549]/20 rounded-2xl p-8 text-center">
           <FlaskConical className="w-10 h-10 text-[#2DB549] mx-auto mb-3" />
-          <h3 className="text-xl font-bold text-[#0B1F4E] mb-2">Looking for individual tests?</h3>
-          <p className="text-slate-500 mb-5">Browse our catalogue of 500+ diagnostic tests.</p>
+          <h3 className="text-xl font-bold text-white/95 mb-2">Looking for individual tests?</h3>
+          <p className="text-white/60 mb-5">Browse our catalogue of 500+ diagnostic tests.</p>
           <Link
             href="/tests"
             className={cn(buttonVariants(), "bg-[#2DB549] hover:bg-[#25A03F] text-white inline-flex items-center gap-2")}

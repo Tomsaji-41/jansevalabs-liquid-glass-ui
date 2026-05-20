@@ -30,11 +30,11 @@ export default function TestDetailPage({ params }: { params: { slug: string } })
     : 0;
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen relative z-10">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Link
           href="/tests"
-          className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-[#0D9488] mb-6 transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm text-white/60 hover:text-[#0D9488] mb-6 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Tests
@@ -43,7 +43,7 @@ export default function TestDetailPage({ params }: { params: { slug: string } })
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main content */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white rounded-2xl border border-border p-6 shadow-card">
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 p-6 shadow-xl">
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-14 h-14 rounded-2xl bg-teal-50 border border-teal-100 flex items-center justify-center shrink-0">
                   <Droplets className="w-7 h-7 text-[#0D9488]" />
@@ -59,21 +59,21 @@ export default function TestDetailPage({ params }: { params: { slug: string } })
                       </Badge>
                     )}
                   </div>
-                  <h1 className="text-2xl font-bold text-[#0B1F4E]">{MOCK_TEST.name}</h1>
-                  <p className="text-sm font-mono text-slate-400 mt-1">Code: {MOCK_TEST.code}</p>
+                  <h1 className="text-2xl font-bold text-white/95">{MOCK_TEST.name}</h1>
+                  <p className="text-sm font-mono text-white/50 mt-1">Code: {MOCK_TEST.code}</p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-4 mb-5">
-                <div className="flex items-center gap-1.5 text-sm text-slate-600 bg-surface px-3 py-1.5 rounded-lg border border-border">
+                <div className="flex items-center gap-1.5 text-sm text-white/70 relative z-10 px-3 py-1.5 rounded-lg border border-white/20">
                   <Clock className="w-4 h-4 text-[#0D9488]" />
                   Report in {MOCK_TEST.turnaroundHours} hours
                 </div>
-                <div className="flex items-center gap-1.5 text-sm text-slate-600 bg-surface px-3 py-1.5 rounded-lg border border-border">
+                <div className="flex items-center gap-1.5 text-sm text-white/70 relative z-10 px-3 py-1.5 rounded-lg border border-white/20">
                   <Droplets className="w-4 h-4 text-[#0D9488]" />
                   {MOCK_TEST.sampleType} sample
                 </div>
-                <div className="flex items-center gap-1.5 text-sm text-slate-600 bg-surface px-3 py-1.5 rounded-lg border border-border">
+                <div className="flex items-center gap-1.5 text-sm text-white/70 relative z-10 px-3 py-1.5 rounded-lg border border-white/20">
                   <ShieldCheck className="w-4 h-4 text-[#0D9488]" />
                   NABL Accredited
                 </div>
@@ -81,18 +81,18 @@ export default function TestDetailPage({ params }: { params: { slug: string } })
 
               <Separator className="mb-5" />
 
-              <h2 className="font-semibold text-slate-800 mb-2">About this test</h2>
-              <p className="text-slate-600 text-sm leading-relaxed">{MOCK_TEST.description}</p>
+              <h2 className="font-semibold text-white/90 mb-2">About this test</h2>
+              <p className="text-white/70 text-sm leading-relaxed">{MOCK_TEST.description}</p>
             </div>
 
             {/* Parameters */}
-            <div className="bg-white rounded-2xl border border-border p-6 shadow-card">
-              <h2 className="font-semibold text-slate-800 mb-4">
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 p-6 shadow-xl">
+              <h2 className="font-semibold text-white/90 mb-4">
                 Parameters Included ({MOCK_TEST.parameters.length})
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {MOCK_TEST.parameters.map((param) => (
-                  <div key={param} className="flex items-center gap-2 text-sm text-slate-600">
+                  <div key={param} className="flex items-center gap-2 text-sm text-white/70">
                     <CheckCircle2 className="w-4 h-4 text-[#0D9488] shrink-0" />
                     {param}
                   </div>
@@ -111,14 +111,14 @@ export default function TestDetailPage({ params }: { params: { slug: string } })
 
           {/* Sidebar — booking card */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24 bg-white rounded-2xl border border-border p-6 shadow-card">
+            <div className="sticky top-24 bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 p-6 shadow-xl">
               <div className="mb-5">
-                <p className="text-3xl font-bold text-[#0B1F4E]">
+                <p className="text-3xl font-bold text-white/95">
                   {formatPrice(MOCK_TEST.discountedPrice ?? MOCK_TEST.price)}
                 </p>
                 {discount > 0 && (
                   <div className="flex items-center gap-2 mt-1">
-                    <p className="text-sm text-slate-400 line-through">
+                    <p className="text-sm text-white/50 line-through">
                       {formatPrice(MOCK_TEST.price)}
                     </p>
                     <Badge className="bg-orange-50 text-orange-600 border-orange-100 text-xs">
@@ -147,7 +147,7 @@ export default function TestDetailPage({ params }: { params: { slug: string } })
                 Add More Tests
               </Link>
 
-              <div className="mt-5 space-y-2.5 text-sm text-slate-500">
+              <div className="mt-5 space-y-2.5 text-sm text-white/60">
                 {[
                   "Home collection available",
                   "Certified phlebotomist",

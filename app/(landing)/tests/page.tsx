@@ -23,14 +23,14 @@ const CATEGORIES = ["All", "Blood Tests", "Hormone Tests", "Urine Tests", "Vitam
 
 export default function TestsPage() {
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen relative z-10">
       {/* Page header */}
-      <div className="bg-white border-b border-border">
+      <div className="bg-white/5 backdrop-blur-md border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0B1F4E] mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-white/95 mb-2">
             Diagnostic Tests
           </h1>
-          <p className="text-slate-500">
+          <p className="text-white/60">
             500+ tests available · Home collection · Fast reports
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function TestsPage() {
         {/* Search + filter bar */}
         <div className="flex flex-col sm:flex-row gap-3 mb-6">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
             <Input
               placeholder="Search tests by name or code..."
               className="pl-9 h-11"
@@ -61,7 +61,7 @@ export default function TestsPage() {
               className={
                 cat === "All"
                   ? "bg-[#0D9488] hover:bg-[#0F766E] text-white cursor-pointer px-4 py-1.5"
-                  : "bg-white border-border text-slate-600 hover:bg-teal-50 hover:text-[#0D9488] hover:border-teal-200 cursor-pointer px-4 py-1.5"
+                  : "bg-white/5 backdrop-blur-md border-white/20 text-white/70 hover:bg-teal-50 hover:text-[#0D9488] hover:border-teal-200 cursor-pointer px-4 py-1.5"
               }
             >
               {cat}
@@ -70,8 +70,8 @@ export default function TestsPage() {
         </div>
 
         {/* Results count */}
-        <p className="text-sm text-slate-500 mb-5">
-          Showing <span className="font-semibold text-slate-700">{MOCK_TESTS.length}</span> tests
+        <p className="text-sm text-white/60 mb-5">
+          Showing <span className="font-semibold text-white/80">{MOCK_TESTS.length}</span> tests
         </p>
 
         {/* Grid */}

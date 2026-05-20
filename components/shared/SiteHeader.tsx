@@ -149,13 +149,13 @@ export default function SiteHeader() {
 
         {/* Mobile nav */}
         {mobileOpen && (
-          <div className="md:hidden border-t border-border py-4 space-y-1">
+          <div className="md:hidden border-t border-white/20 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center px-4 py-2.5 text-sm font-medium text-slate-700 hover:text-[#0D9488] hover:bg-teal-50 rounded-lg transition-colors"
+                className="flex items-center px-4 py-2.5 text-sm font-medium text-white/80 hover:text-[#0D9488] hover:bg-teal-50 rounded-lg transition-colors"
               >
                 {link.label}
               </Link>

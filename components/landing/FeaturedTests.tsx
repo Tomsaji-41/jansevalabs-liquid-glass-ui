@@ -131,25 +131,25 @@ export default function FeaturedTests() {
   const isSearching = query.trim().length > 0;
 
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-white/5 backdrop-blur-md py-16 md:py-20">
       {/* Heading row — left: title, right: search */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
 
           {/* Left */}
           <div>
-            <Badge className="bg-[#F0FFF5] text-[#1D7D31] border-[#2DB549]/20 mb-3">
+            <Badge className="bg-[#2DB549]/10 text-[#1D7D31] border-[#2DB549]/20 mb-3">
               Most Booked
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F4E] leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-white/95 leading-tight">
               Popular Tests
             </h2>
-            <p className="text-slate-600 mt-2 max-w-sm text-base">
+            <p className="text-white/70 mt-2 max-w-sm text-base">
               High-accuracy tests trusted by thousands of patients every month
             </p>
             <Link
               href="/tests"
-              className={cn(buttonVariants({ variant: "ghost" }), "text-[#2DB549] hover:text-[#25A03F] hover:bg-[#F0FFF5] mt-2 -ml-3 inline-flex items-center gap-1.5")}
+              className={cn(buttonVariants({ variant: "ghost" }), "text-[#2DB549] hover:text-[#25A03F] hover:bg-[#2DB549]/10 mt-2 -ml-3 inline-flex items-center gap-1.5")}
             >
               View all tests <ArrowRight className="w-4 h-4" />
             </Link>
@@ -157,24 +157,24 @@ export default function FeaturedTests() {
 
           {/* Right — search */}
           <div className="w-full md:w-96 lg:w-[440px] shrink-0">
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">
+            <p className="text-xs font-semibold text-white/50 uppercase tracking-widest mb-2">
               Search 500+ tests
             </p>
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 pointer-events-none" />
               <input
                 ref={inputRef}
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="e.g. CBC, thyroid, vitamin D…"
-                className="w-full h-12 pl-11 pr-10 rounded-xl border-2 border-border focus:border-[#2DB549] focus:outline-none bg-white text-sm shadow-sm transition-colors"
+                className="w-full h-12 pl-11 pr-10 rounded-xl border-2 border-white/20 focus:border-[#2DB549] focus:outline-none bg-white/5 backdrop-blur-md text-sm shadow-sm transition-colors"
               />
               {searching && (
                 <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 animate-spin text-[#2DB549]" />
               )}
               {!searching && query && (
-                <button onClick={clear} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                <button onClick={clear} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/70">
                   <X className="w-4 h-4" />
                 </button>
               )}
@@ -185,7 +185,7 @@ export default function FeaturedTests() {
                 <button
                   key={term}
                   onClick={() => setQuery(term)}
-                  className="text-xs px-2.5 py-1 rounded-full bg-slate-100 border border-border text-slate-600 hover:bg-[#F0FFF5] hover:border-[#2DB549]/30 hover:text-[#2DB549] transition-colors"
+                  className="text-xs px-2.5 py-1 rounded-full bg-white/10 border border-white/20 text-white/70 hover:bg-[#2DB549]/10 hover:border-[#2DB549]/30 hover:text-[#2DB549] transition-colors"
                 >
                   {term}
                 </button>
@@ -201,10 +201,10 @@ export default function FeaturedTests() {
 
         {/* Search status */}
         {isSearching && !searching && (
-          <p className="text-sm text-slate-500 mb-6">
+          <p className="text-sm text-white/60 mb-6">
             {displayTests.length > 0
-              ? <><span className="font-semibold text-slate-700">{displayTests.length}</span> result{displayTests.length !== 1 ? "s" : ""} for &ldquo;{query}&rdquo;</>
-              : <>No tests found for &ldquo;<span className="font-semibold text-slate-700">{query}</span>&rdquo; — <Link href={`/tests?search=${encodeURIComponent(query)}`} className="text-[#2DB549] hover:underline">browse all tests</Link></>
+              ? <><span className="font-semibold text-white/80">{displayTests.length}</span> result{displayTests.length !== 1 ? "s" : ""} for &ldquo;{query}&rdquo;</>
+              : <>No tests found for &ldquo;<span className="font-semibold text-white/80">{query}</span>&rdquo; — <Link href={`/tests?search=${encodeURIComponent(query)}`} className="text-[#2DB549] hover:underline">browse all tests</Link></>
             }
           </p>
         )}
@@ -219,7 +219,7 @@ export default function FeaturedTests() {
             return (
               <div
                 key={test.id}
-                className="group bg-[#EEF2FF] border border-[#C7D2FE] rounded-xl shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200 flex flex-col overflow-hidden"
+                className="group bg-[#EEF2FF] border border-[#C7D2FE] rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 flex flex-col overflow-hidden"
               >
                 {/* Accent bar */}
                 <div className="h-1 bg-green-gradient" />
@@ -227,7 +227,7 @@ export default function FeaturedTests() {
                 <div className="p-5 flex flex-col flex-1">
                   {/* Icon + badges */}
                   <div className="flex items-start justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#F0FFF5] border border-[#2DB549]/15 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-[#2DB549]/10 border border-[#2DB549]/15 flex items-center justify-center">
                       <Droplets className="w-5 h-5 text-[#2DB549]" />
                     </div>
                     <div className="flex flex-col items-end gap-1">
@@ -237,7 +237,7 @@ export default function FeaturedTests() {
                         </Badge>
                       )}
                       {discount > 0 && (
-                        <Badge variant="secondary" className="bg-white text-orange-600 border-orange-100 text-[10px] px-2 py-0.5">
+                        <Badge variant="secondary" className="bg-white/5 backdrop-blur-md text-orange-600 border-orange-100 text-[10px] px-2 py-0.5">
                           {discount}% off
                         </Badge>
                       )}
@@ -245,31 +245,31 @@ export default function FeaturedTests() {
                   </div>
 
                   {/* Name + code */}
-                  <h3 className="font-bold text-slate-900 text-sm leading-snug mb-0.5 group-hover:text-[#2DB549] transition-colors">
+                  <h3 className="font-bold text-white/90 text-sm leading-snug mb-0.5 group-hover:text-[#2DB549] transition-colors">
                     {test.name}
                   </h3>
-                  <p className="text-[10px] font-mono text-slate-400 mb-2">{test.code}</p>
+                  <p className="text-[10px] font-mono text-white/50 mb-2">{test.code}</p>
 
                   {/* Description */}
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-xs text-white/70 leading-relaxed mb-4 line-clamp-3">
                     {test.description}
                   </p>
 
                   {/* Parameters */}
                   {test.parameters.length > 0 && (
                     <div className="mb-4">
-                      <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-1.5">
+                      <p className="text-[10px] font-semibold text-white/50 uppercase tracking-widest mb-1.5">
                         Includes
                       </p>
                       <ul className="space-y-1">
                         {test.parameters.slice(0, 3).map((param) => (
-                          <li key={param} className="flex items-center gap-1.5 text-xs text-slate-600">
+                          <li key={param} className="flex items-center gap-1.5 text-xs text-white/70">
                             <CheckCircle2 className="w-3 h-3 text-[#2DB549] shrink-0" />
                             {param}
                           </li>
                         ))}
                         {test.parameters.length > 3 && (
-                          <li className="text-[10px] text-slate-400 pl-4.5">+{test.parameters.length - 3} more</li>
+                          <li className="text-[10px] text-white/50 pl-4.5">+{test.parameters.length - 3} more</li>
                         )}
                       </ul>
                     </div>
@@ -277,16 +277,16 @@ export default function FeaturedTests() {
 
                   {/* Meta row */}
                   <div className="flex flex-wrap items-center gap-1.5 mb-4 mt-auto">
-                    <span className="flex items-center gap-1 text-[10px] text-slate-500 bg-white border border-border rounded-full px-2 py-1">
+                    <span className="flex items-center gap-1 text-[10px] text-white/60 bg-white/5 backdrop-blur-md border border-white/20 rounded-full px-2 py-1">
                       <Clock className="w-3 h-3" />
                       {test.turnaroundHours}h
                     </span>
-                    <span className="flex items-center gap-1 text-[10px] text-slate-500 bg-white border border-border rounded-full px-2 py-1 capitalize">
+                    <span className="flex items-center gap-1 text-[10px] text-white/60 bg-white/5 backdrop-blur-md border border-white/20 rounded-full px-2 py-1 capitalize">
                       <Droplets className="w-3 h-3" />
                       {test.sampleType}
                     </span>
                     {test.homeCollection && (
-                      <span className="flex items-center gap-1 text-[10px] text-[#2DB549] bg-[#F0FFF5] border border-[#2DB549]/20 rounded-full px-2 py-1">
+                      <span className="flex items-center gap-1 text-[10px] text-[#2DB549] bg-[#2DB549]/10 border border-[#2DB549]/20 rounded-full px-2 py-1">
                         <Home className="w-3 h-3" />
                         Home
                       </span>
@@ -295,21 +295,21 @@ export default function FeaturedTests() {
 
                   {/* Preparation */}
                   {test.preparation && (
-                    <div className="flex items-center gap-1.5 text-[10px] text-slate-500 mb-4">
+                    <div className="flex items-center gap-1.5 text-[10px] text-white/60 mb-4">
                       <ShieldCheck className="w-3 h-3 text-[#F47920] shrink-0" />
-                      <span className="font-medium text-slate-700">{test.preparation}</span>
+                      <span className="font-medium text-white/80">{test.preparation}</span>
                     </div>
                   )}
 
                   {/* Price + CTA */}
-                  <div className="border-t border-border pt-4 flex items-center justify-between gap-2">
+                  <div className="border-t border-white/20 pt-4 flex items-center justify-between gap-2">
                     <div>
                       <div className="flex items-baseline gap-1.5">
-                        <span className="text-lg font-bold text-[#0B1F4E]">
+                        <span className="text-lg font-bold text-white/95">
                           {formatPrice(test.discountedPrice ?? test.price)}
                         </span>
                         {test.discountedPrice && test.discountedPrice < test.price && (
-                          <span className="text-xs text-slate-400 line-through">
+                          <span className="text-xs text-white/50 line-through">
                             {formatPrice(test.price)}
                           </span>
                         )}
@@ -335,7 +335,7 @@ export default function FeaturedTests() {
                       className={cn(
                         "flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold transition-all duration-200 shrink-0",
                         inCart
-                          ? "bg-[#F0FFF5] text-[#2DB549] border border-[#2DB549]/30 cursor-default"
+                          ? "bg-[#2DB549]/10 text-[#2DB549] border border-[#2DB549]/30 cursor-default"
                           : "bg-[#2DB549] hover:bg-[#25A03F] text-white shadow-green-glow hover:shadow-md"
                       )}
                       aria-label={inCart ? "Already in cart" : `Add ${test.name} to cart`}

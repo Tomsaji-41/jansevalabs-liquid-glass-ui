@@ -52,6 +52,15 @@ export default function RootLayout({
       >
         {/* Background Orbs */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
+          {/* Abstract Image Background Overlay */}
+          <div 
+            className="absolute inset-0 z-0 opacity-30 mix-blend-overlay"
+            style={{
+              backgroundImage: "url('/images/bg.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }}
+          />
           <div className="orb" style={{ top: "10%", left: "20%", width: "40vw", height: "40vw", backgroundColor: "#1D9E75" }} />
           <div className="orb" style={{ bottom: "20%", right: "10%", width: "35vw", height: "35vw", backgroundColor: "#185fa5", animationDelay: "-2s" }} />
           <div className="orb" style={{ top: "40%", left: "50%", width: "25vw", height: "25vw", backgroundColor: "#5dcaa5", animationDelay: "-4s" }} />

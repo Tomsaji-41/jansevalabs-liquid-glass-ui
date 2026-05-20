@@ -37,13 +37,24 @@ export default function SignInPage() {
 
   return (
     <div className="w-full max-w-md">
-      <div className="bg-white rounded-2xl border border-border shadow-card-hover p-7">
-        <h1 className="text-2xl font-bold text-[#0B1F4E] mb-1">Welcome back</h1>
-        <p className="text-slate-500 text-sm mb-6">Sign in to view your reports and appointments.</p>
+      <div 
+        className="rounded-2xl p-7"
+        style={{
+          background: "rgba(255, 255, 255, 0.10)",
+          backdropFilter: "blur(40px) saturate(180%) brightness(1.1)",
+          WebkitBackdropFilter: "blur(40px) saturate(180%) brightness(1.1)",
+          border: "1px solid rgba(255, 255, 255, 0.25)",
+          borderTop: "1px solid rgba(255, 255, 255, 0.45)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.1), 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12)",
+        }}
+      >
+        <h1 className="text-2xl font-bold mb-1" style={{ color: "rgba(255,255,255,0.95)" }}>Welcome back</h1>
+        <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.55)" }}>Sign in to view your reports and appointments.</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" style={{ color: "rgba(255,255,255,0.9)" }}>Email</Label>
             <Input
               id="email"
               type="email"
@@ -54,7 +65,7 @@ export default function SignInPage() {
             />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password" style={{ color: "rgba(255,255,255,0.9)" }}>Password</Label>
             <Input
               id="password"
               type="password"
@@ -68,20 +79,32 @@ export default function SignInPage() {
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#0D9488] hover:bg-[#0F766E] text-white h-11 font-semibold"
+            className="w-full font-semibold"
+            style={{
+              background: "rgba(29,158,117,0.55)",
+              border: "1px solid rgba(255,255,255,0.30)",
+              borderTop: "1px solid rgba(255,255,255,0.50)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 16px rgba(0,0,0,0.2)",
+              borderRadius: "14px",
+              color: "rgba(255,255,255,0.95)",
+              minHeight: "52px",
+              fontSize: "16px"
+            }}
           >
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Sign In"}
           </Button>
         </form>
 
-        <p className="mt-5 text-center text-sm text-slate-500">
+        <p className="mt-5 text-center text-sm" style={{ color: "rgba(255,255,255,0.55)" }}>
           New patient?{" "}
-          <Link href="/sign-up" className="text-[#0D9488] hover:underline font-medium">
+          <Link href="/sign-up" className="hover:underline font-medium" style={{ color: "rgba(255,255,255,0.9)" }}>
             Create an account
           </Link>
         </p>
-        <p className="mt-2 text-center text-sm text-slate-500">
-          <Link href="/results" className="text-[#0D9488] hover:underline">
+        <p className="mt-2 text-center text-sm" style={{ color: "rgba(255,255,255,0.55)" }}>
+          <Link href="/results" className="hover:underline" style={{ color: "rgba(255,255,255,0.9)" }}>
             Quick result view (no login)
           </Link>
         </p>

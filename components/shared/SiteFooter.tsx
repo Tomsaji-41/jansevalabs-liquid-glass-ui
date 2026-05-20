@@ -52,21 +52,21 @@ export default function SiteFooter() {
                 </span>
               </div>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-white/50 text-sm leading-relaxed">
               NABL-accredited diagnostic laboratory providing accurate,
               affordable tests with home sample collection across your city.
             </p>
             <div className="flex gap-3">
               <a
                 href="#"
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#0D9488] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-lg bg-white/5 backdrop-blur-md/10 hover:bg-[#0D9488] flex items-center justify-center transition-colors"
                 aria-label="Social"
               >
                 <Share2 className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#0D9488] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-lg bg-white/5 backdrop-blur-md/10 hover:bg-[#0D9488] flex items-center justify-center transition-colors"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -84,7 +84,7 @@ export default function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors"
+                    className="text-sm text-white/50 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -103,7 +103,7 @@ export default function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors"
+                    className="text-sm text-white/50 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -118,19 +118,19 @@ export default function SiteFooter() {
               Contact Us
             </h4>
             <ul className="space-y-3">
-              <li className="flex items-start gap-2.5 text-sm text-slate-400">
+              <li className="flex items-start gap-2.5 text-sm text-white/50">
                 <Phone className="w-4 h-4 mt-0.5 text-[#2DD4BF] shrink-0" />
                 <span>1800-000-0000 (Toll Free)</span>
               </li>
-              <li className="flex items-start gap-2.5 text-sm text-slate-400">
+              <li className="flex items-start gap-2.5 text-sm text-white/50">
                 <Mail className="w-4 h-4 mt-0.5 text-[#2DD4BF] shrink-0" />
                 <span>support@janseva.in</span>
               </li>
-              <li className="flex items-start gap-2.5 text-sm text-slate-400">
+              <li className="flex items-start gap-2.5 text-sm text-white/50">
                 <MapPin className="w-4 h-4 mt-0.5 text-[#2DD4BF] shrink-0" />
                 <span>123 Medical Centre, Sector 5, Your City</span>
               </li>
-              <li className="flex items-start gap-2.5 text-sm text-slate-400">
+              <li className="flex items-start gap-2.5 text-sm text-white/50">
                 <Clock className="w-4 h-4 mt-0.5 text-[#2DD4BF] shrink-0" />
                 <span>Mon–Sat: 6 AM – 8 PM<br />Sun: 7 AM – 3 PM</span>
               </li>
@@ -139,7 +139,7 @@ export default function SiteFooter() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+        <div className="border-t border-white/10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/60">
           <p>© {new Date().getFullYear()} Janseva Diagnostics. All rights reserved.</p>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-white transition-colors">

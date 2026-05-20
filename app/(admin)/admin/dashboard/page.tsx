@@ -59,13 +59,13 @@ export default async function AdminDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[#0B1F4E]">Dashboard</h1>
-        <p className="text-slate-500 mt-1">Welcome back. Here&apos;s what&apos;s happening today.</p>
+        <h1 className="text-2xl font-bold text-white/95">Dashboard</h1>
+        <p className="text-white/60 mt-1">Welcome back. Here&apos;s what&apos;s happening today.</p>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map(({ icon: Icon, label, value, color }) => (
-          <Card key={label} className="border-border shadow-card">
+          <Card key={label} className="border-white/20 shadow-xl">
             <CardContent className="p-5">
               <div className={`w-10 h-10 rounded-xl mb-3 flex items-center justify-center ${
                 color === "teal" ? "bg-teal-50" :
@@ -78,27 +78,27 @@ export default async function AdminDashboard() {
                   color === "sky" ? "text-[#0284C7]" : "text-amber-600"
                 }`} />
               </div>
-              <p className="text-2xl font-bold text-[#0B1F4E]">{value}</p>
-              <p className="text-xs text-slate-500 mt-0.5">{label}</p>
+              <p className="text-2xl font-bold text-white/95">{value}</p>
+              <p className="text-xs text-white/60 mt-0.5">{label}</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardHeader>
-          <CardTitle className="text-base font-semibold text-[#0B1F4E]">Recent Orders</CardTitle>
+          <CardTitle className="text-base font-semibold text-white/95">Recent Orders</CardTitle>
         </CardHeader>
         <CardContent>
           {recentOrders.length === 0 ? (
-            <p className="text-sm text-slate-400 py-4">No orders yet.</p>
+            <p className="text-sm text-white/50 py-4">No orders yet.</p>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-border text-left">
+                  <tr className="border-b border-white/20 text-left">
                     {["Order", "Patient", "Tests", "Status", "Date", "Amount"].map((h) => (
-                      <th key={h} className={`pb-3 font-semibold text-slate-500 text-xs uppercase tracking-wide ${h === "Amount" ? "text-right" : ""}`}>{h}</th>
+                      <th key={h} className={`pb-3 font-semibold text-white/60 text-xs uppercase tracking-wide ${h === "Amount" ? "text-right" : ""}`}>{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -109,17 +109,17 @@ export default async function AdminDashboard() {
                       ?.map((i) => i.name)
                       .join(", ") ?? "—";
                     return (
-                      <tr key={order.id} className="hover:bg-surface transition-colors">
-                        <td className="py-3 font-mono text-xs font-semibold text-[#0B1F4E]">#{order.orderNumber}</td>
-                        <td className="py-3 font-medium text-slate-700">{order.patientName ?? "—"}</td>
-                        <td className="py-3 text-slate-500 text-xs max-w-[160px] truncate">{itemNames}</td>
+                      <tr key={order.id} className="hover:relative z-10 transition-colors">
+                        <td className="py-3 font-mono text-xs font-semibold text-white/95">#{order.orderNumber}</td>
+                        <td className="py-3 font-medium text-white/80">{order.patientName ?? "—"}</td>
+                        <td className="py-3 text-white/60 text-xs max-w-[160px] truncate">{itemNames}</td>
                         <td className="py-3">
                           <Badge className={`border text-xs ${st.class}`}>{st.label}</Badge>
                         </td>
-                        <td className="py-3 text-slate-500 text-xs">
+                        <td className="py-3 text-white/60 text-xs">
                           {order.createdAt ? formatDate(order.createdAt) : "—"}
                         </td>
-                        <td className="py-3 text-right font-semibold text-slate-700">{formatPrice(order.total)}</td>
+                        <td className="py-3 text-right font-semibold text-white/80">{formatPrice(order.total)}</td>
                       </tr>
                     );
                   })}

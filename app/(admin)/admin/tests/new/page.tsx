@@ -98,22 +98,22 @@ export default function NewTestPage() {
       <div className="flex items-center gap-3">
         <Link
           href="/admin/tests"
-          className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-slate-500")}
+          className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-white/60")}
         >
           <ArrowLeft className="w-4 h-4 mr-1" />
           Back
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-[#0B1F4E]">Add New Test</h1>
-          <p className="text-slate-500 text-sm mt-0.5">Fill in the test details below.</p>
+          <h1 className="text-2xl font-bold text-white/95">Add New Test</h1>
+          <p className="text-white/60 text-sm mt-0.5">Fill in the test details below.</p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Basic Info */}
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E]">Basic Information</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/95">Basic Information</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
@@ -140,30 +140,30 @@ export default function NewTestPage() {
         </Card>
 
         {/* Pricing */}
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E]">Pricing (enter in ₹)</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/95">Pricing (enter in ₹)</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <Label>MRP (₹) <span className="text-red-400">*</span></Label>
                 <Input type="number" min="1" placeholder="e.g. 599" value={form.price} onChange={set("price")} required />
-                <p className="text-xs text-slate-400">Stored as paise internally (×100)</p>
+                <p className="text-xs text-white/50">Stored as paise internally (×100)</p>
               </div>
               <div className="space-y-1.5">
                 <Label>Discounted Price (₹)</Label>
                 <Input type="number" min="1" placeholder="e.g. 399" value={form.discountedPrice} onChange={set("discountedPrice")} />
-                <p className="text-xs text-slate-400">Leave blank if no discount</p>
+                <p className="text-xs text-white/50">Leave blank if no discount</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Collection Details */}
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E]">Collection Details</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/95">Collection Details</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
@@ -193,12 +193,12 @@ export default function NewTestPage() {
         </Card>
 
         {/* Flags */}
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E]">Visibility</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/95">Visibility</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-wrap gap-6">
-            <label className="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer select-none">
+            <label className="flex items-center gap-2.5 text-sm text-white/80 cursor-pointer select-none">
               <input
                 type="checkbox"
                 checked={form.isActive}
@@ -207,7 +207,7 @@ export default function NewTestPage() {
               />
               Active (visible to patients)
             </label>
-            <label className="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer select-none">
+            <label className="flex items-center gap-2.5 text-sm text-white/80 cursor-pointer select-none">
               <input
                 type="checkbox"
                 checked={form.isPopular}
@@ -235,7 +235,7 @@ export default function NewTestPage() {
               </>
             )}
           </Button>
-          <Link href="/admin/tests" className={cn(buttonVariants({ variant: "outline" }), "text-slate-600")}>
+          <Link href="/admin/tests" className={cn(buttonVariants({ variant: "outline" }), "text-white/70")}>
             Cancel
           </Link>
         </div>

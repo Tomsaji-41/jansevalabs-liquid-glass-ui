@@ -14,9 +14,9 @@ export default function TestsLoading() {
 
       <Skeleton className="h-11 w-full rounded-xl" />
 
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardContent className="p-0">
-          <div className="px-5 py-3 border-b border-border bg-surface grid grid-cols-5 gap-4">
+          <div className="px-5 py-3 border-b border-white/20 relative z-10 grid grid-cols-5 gap-4">
             {Array.from({ length: 5 }).map((_, i) => (
               <Skeleton key={i} className="h-3 w-full" />
             ))}

@@ -83,21 +83,21 @@ export default function NewPackagePage() {
       <div className="flex items-center gap-3">
         <Link
           href="/admin/packages"
-          className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-slate-500")}
+          className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-white/60")}
         >
           <ArrowLeft className="w-4 h-4 mr-1" />
           Back
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-[#0B1F4E]">Add New Package</h1>
-          <p className="text-slate-500 text-sm mt-0.5">Create a bundled health package.</p>
+          <h1 className="text-2xl font-bold text-white/95">Add New Package</h1>
+          <p className="text-white/60 text-sm mt-0.5">Create a bundled health package.</p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E]">Package Details</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/95">Package Details</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-1.5">
@@ -122,9 +122,9 @@ export default function NewPackagePage() {
           </CardContent>
         </Card>
 
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E]">Pricing (enter in ₹)</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/95">Pricing (enter in ₹)</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
@@ -138,7 +138,7 @@ export default function NewPackagePage() {
                   onChange={set("price")}
                   required
                 />
-                <p className="text-xs text-slate-400">Stored as paise internally (×100)</p>
+                <p className="text-xs text-white/50">Stored as paise internally (×100)</p>
               </div>
               <div className="space-y-1.5">
                 <Label>Discounted Price (₹)</Label>
@@ -149,18 +149,18 @@ export default function NewPackagePage() {
                   value={form.discountedPrice}
                   onChange={set("discountedPrice")}
                 />
-                <p className="text-xs text-slate-400">Leave blank if no discount</p>
+                <p className="text-xs text-white/50">Leave blank if no discount</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E]">Visibility</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/95">Visibility</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-wrap gap-6">
-            <label className="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer select-none">
+            <label className="flex items-center gap-2.5 text-sm text-white/80 cursor-pointer select-none">
               <input
                 type="checkbox"
                 checked={form.isActive}
@@ -169,7 +169,7 @@ export default function NewPackagePage() {
               />
               Active (visible to patients)
             </label>
-            <label className="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer select-none">
+            <label className="flex items-center gap-2.5 text-sm text-white/80 cursor-pointer select-none">
               <input
                 type="checkbox"
                 checked={form.isPopular}
@@ -196,7 +196,7 @@ export default function NewPackagePage() {
               </>
             )}
           </Button>
-          <Link href="/admin/packages" className={cn(buttonVariants({ variant: "outline" }), "text-slate-600")}>
+          <Link href="/admin/packages" className={cn(buttonVariants({ variant: "outline" }), "text-white/70")}>
             Cancel
           </Link>
         </div>

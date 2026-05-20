@@ -17,7 +17,7 @@ export default function OrderDetailLoading() {
       </div>
 
       {/* Progress tracker */}
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardContent className="p-6">
           <div className="flex items-center gap-0">
             {Array.from({ length: 4 }).map((_, i) => (
@@ -36,7 +36,7 @@ export default function OrderDetailLoading() {
       {/* Patient + Collection */}
       <div className="grid md:grid-cols-2 gap-6">
         {Array.from({ length: 2 }).map((_, i) => (
-          <Card key={i} className="border-border shadow-card">
+          <Card key={i} className="border-white/20 shadow-xl">
             <CardHeader>
               <Skeleton className="h-4 w-32" />
             </CardHeader>
@@ -53,13 +53,13 @@ export default function OrderDetailLoading() {
       </div>
 
       {/* Items */}
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardHeader>
           <Skeleton className="h-4 w-28" />
         </CardHeader>
         <CardContent className="space-y-3">
           {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="flex justify-between py-2 border-b border-border">
+            <div key={i} className="flex justify-between py-2 border-b border-white/20">
               <div className="space-y-1.5">
                 <Skeleton className="h-4 w-48" />
                 <Skeleton className="h-3 w-16" />
@@ -77,7 +77,7 @@ export default function OrderDetailLoading() {
       {/* Payment + Reports */}
       <div className="grid md:grid-cols-2 gap-6">
         {Array.from({ length: 2 }).map((_, i) => (
-          <Card key={i} className="border-border shadow-card">
+          <Card key={i} className="border-white/20 shadow-xl">
             <CardHeader>
               <Skeleton className="h-4 w-24" />
             </CardHeader>

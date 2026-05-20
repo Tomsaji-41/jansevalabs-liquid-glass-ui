@@ -127,45 +127,45 @@ export default function SummaryStep({ data, onBack }: Props) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-bold text-[#0B1F4E] mb-1">Order Summary</h2>
-        <p className="text-sm text-slate-500">Please review your details before paying.</p>
+        <h2 className="text-xl font-bold text-white/95 mb-1">Order Summary</h2>
+        <p className="text-sm text-white/60">Please review your details before paying.</p>
       </div>
 
       {/* Booking details */}
-      <div className="bg-surface rounded-xl border border-border p-4 space-y-3 text-sm">
+      <div className="relative z-10 rounded-xl border border-white/20 p-4 space-y-3 text-sm">
         <div className="flex justify-between">
-          <span className="text-slate-500">Pincode</span>
-          <span className="font-medium text-slate-800">
+          <span className="text-white/60">Pincode</span>
+          <span className="font-medium text-white/90">
             {data.pincode} — {data.areaName}
           </span>
         </div>
         <Separator />
         <div className="flex justify-between">
-          <span className="text-slate-500">Collection</span>
-          <span className="font-medium text-slate-800 capitalize">
+          <span className="text-white/60">Collection</span>
+          <span className="font-medium text-white/90 capitalize">
             {data.collectionMode === "home" ? "Home Collection" : "Walk-in"}
           </span>
         </div>
         <Separator />
         <div className="flex justify-between">
-          <span className="text-slate-500">Date & Time</span>
-          <span className="font-medium text-slate-800">
+          <span className="text-white/60">Date & Time</span>
+          <span className="font-medium text-white/90">
             {formatDate(data.date)} · {data.slot}
           </span>
         </div>
         <Separator />
         <div className="flex justify-between">
-          <span className="text-slate-500">Patient</span>
-          <span className="font-medium text-slate-800">{data.patientName}</span>
+          <span className="text-white/60">Patient</span>
+          <span className="font-medium text-white/90">{data.patientName}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-slate-500">Mobile</span>
-          <span className="font-medium text-slate-800">{data.patientMobile}</span>
+          <span className="text-white/60">Mobile</span>
+          <span className="font-medium text-white/90">{data.patientMobile}</span>
         </div>
         {data.address && (
           <div className="flex justify-between">
-            <span className="text-slate-500">Address</span>
-            <span className="font-medium text-slate-800 text-right max-w-xs">{data.address}</span>
+            <span className="text-white/60">Address</span>
+            <span className="font-medium text-white/90 text-right max-w-xs">{data.address}</span>
           </div>
         )}
       </div>
@@ -173,19 +173,19 @@ export default function SummaryStep({ data, onBack }: Props) {
       {/* Cart items */}
       {items.length > 0 && (
         <div className="space-y-2">
-          <p className="text-sm font-semibold text-slate-700">Tests ({items.length})</p>
+          <p className="text-sm font-semibold text-white/80">Tests ({items.length})</p>
           {items.map((item) => (
             <div key={`${item.type}-${item.id}`} className="flex justify-between text-sm">
-              <span className="text-slate-600">{item.name}</span>
-              <span className="font-medium text-slate-800">
+              <span className="text-white/70">{item.name}</span>
+              <span className="font-medium text-white/90">
                 {formatPrice(item.discountedPrice ?? item.price)}
               </span>
             </div>
           ))}
           <Separator className="my-2" />
           <div className="flex justify-between font-bold text-base">
-            <span className="text-[#0B1F4E]">Total</span>
-            <span className="text-[#0B1F4E]">{formatPrice(total)}</span>
+            <span className="text-white/95">Total</span>
+            <span className="text-white/95">{formatPrice(total)}</span>
           </div>
         </div>
       )}

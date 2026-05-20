@@ -97,8 +97,8 @@ export default function AdminPincodesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0B1F4E]">Pincodes</h1>
-          <p className="text-slate-500 mt-1 text-sm">Manage service coverage and home collection availability.</p>
+          <h1 className="text-2xl font-bold text-white/95">Pincodes</h1>
+          <p className="text-white/60 mt-1 text-sm">Manage service coverage and home collection availability.</p>
         </div>
         <Button
           onClick={() => setShowForm((v) => !v)}
@@ -117,10 +117,10 @@ export default function AdminPincodesPage() {
           { label: "Inactive", value: rows.length - active },
           { label: "Home Collection", value: homeEnabled },
         ].map(({ label, value }) => (
-          <Card key={label} className="border-border shadow-card">
+          <Card key={label} className="border-white/20 shadow-xl">
             <CardContent className="p-5">
-              <p className="text-2xl font-bold text-[#0B1F4E]">{value}</p>
-              <p className="text-xs text-slate-500 mt-0.5">{label}</p>
+              <p className="text-2xl font-bold text-white/95">{value}</p>
+              <p className="text-xs text-white/60 mt-0.5">{label}</p>
             </CardContent>
           </Card>
         ))}
@@ -128,9 +128,9 @@ export default function AdminPincodesPage() {
 
       {/* Add form */}
       {showForm && (
-        <Card className="border-[#1E3A8A]/30 shadow-card bg-navy-50">
+        <Card className="border-[#1E3A8A]/30 shadow-xl bg-navy-50">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E]">Add New Pincode</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/95">Add New Pincode</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleAdd} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-end">
@@ -151,7 +151,7 @@ export default function AdminPincodesPage() {
                 <Input placeholder="Maharashtra" value={form.state} onChange={set("state")} className="h-9 text-sm" required />
               </div>
               <div className="flex items-center gap-3 pt-4">
-                <label className="flex items-center gap-1.5 text-xs text-slate-600 cursor-pointer select-none">
+                <label className="flex items-center gap-1.5 text-xs text-white/70 cursor-pointer select-none">
                   <input
                     type="checkbox"
                     checked={form.homeCollectionAvailable}
@@ -163,7 +163,7 @@ export default function AdminPincodesPage() {
                 <Button type="submit" disabled={saving} size="sm" className="bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white h-9">
                   {saving ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : "Save"}
                 </Button>
-                <button type="button" onClick={() => setShowForm(false)} className="text-slate-400 hover:text-slate-600">
+                <button type="button" onClick={() => setShowForm(false)} className="text-white/50 hover:text-white/70">
                   <X className="w-4 h-4" />
                 </button>
               </div>
@@ -173,39 +173,39 @@ export default function AdminPincodesPage() {
       )}
 
       {/* Table */}
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardHeader>
-          <CardTitle className="text-base font-semibold text-[#0B1F4E] flex items-center gap-2">
+          <CardTitle className="text-base font-semibold text-white/95 flex items-center gap-2">
             <MapPin className="w-4 h-4" />
             Service Coverage
           </CardTitle>
         </CardHeader>
         <CardContent>
           {loadingRows && (
-            <div className="flex items-center gap-2 py-6 text-sm text-slate-500">
+            <div className="flex items-center gap-2 py-6 text-sm text-white/60">
               <Loader2 className="w-4 h-4 animate-spin text-[#1E3A8A]" />
               Loading pincodes…
             </div>
           )}
           {!loadingRows && rows.length === 0 && (
-            <p className="text-sm text-slate-400 py-6">No pincodes yet. Add your first one above.</p>
+            <p className="text-sm text-white/50 py-6">No pincodes yet. Add your first one above.</p>
           )}
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-border text-left">
+                <tr className="border-b border-white/20 text-left">
                   {["Pincode", "Area", "City", "State", "Active", "Home Collection", ""].map((h) => (
-                    <th key={h} className="pb-3 font-semibold text-slate-500 text-xs uppercase tracking-wide pr-4">{h}</th>
+                    <th key={h} className="pb-3 font-semibold text-white/60 text-xs uppercase tracking-wide pr-4">{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {rows.map((r) => (
-                  <tr key={r.id} className="hover:bg-surface transition-colors">
-                    <td className="py-3 pr-4 font-mono text-xs font-bold text-[#0B1F4E]">{r.pincode}</td>
-                    <td className="py-3 pr-4 text-slate-700 text-xs">{r.areaName}</td>
-                    <td className="py-3 pr-4 text-slate-600 text-xs">{r.city}</td>
-                    <td className="py-3 pr-4 text-slate-500 text-xs">{r.state}</td>
+                  <tr key={r.id} className="hover:relative z-10 transition-colors">
+                    <td className="py-3 pr-4 font-mono text-xs font-bold text-white/95">{r.pincode}</td>
+                    <td className="py-3 pr-4 text-white/80 text-xs">{r.areaName}</td>
+                    <td className="py-3 pr-4 text-white/70 text-xs">{r.city}</td>
+                    <td className="py-3 pr-4 text-white/60 text-xs">{r.state}</td>
                     <td className="py-3 pr-4">
                       <button
                         onClick={() => toggleField(r.id, "isActive")}
@@ -214,13 +214,13 @@ export default function AdminPincodesPage() {
                         title={r.isActive ? "Click to deactivate" : "Click to activate"}
                       >
                         {toggling === r.id ? (
-                          <Loader2 className="w-4 h-4 animate-spin text-slate-400" />
+                          <Loader2 className="w-4 h-4 animate-spin text-white/50" />
                         ) : r.isActive ? (
-                          <Badge className="bg-[#F0FFF5] text-[#1D7D31] border-[#2DB549]/20 border text-xs cursor-pointer hover:bg-red-50 hover:text-red-600 hover:border-red-200 transition-colors">
+                          <Badge className="bg-[#2DB549]/10 text-[#1D7D31] border-[#2DB549]/20 border text-xs cursor-pointer hover:bg-red-50 hover:text-red-600 hover:border-red-200 transition-colors">
                             <Check className="w-3 h-3 mr-1" /> Active
                           </Badge>
                         ) : (
-                          <Badge className="bg-slate-50 text-slate-400 border-border border text-xs cursor-pointer hover:bg-[#F0FFF5] hover:text-[#1D7D31] hover:border-[#2DB549]/20 transition-colors">
+                          <Badge className="bg-white/5 text-white/50 border-white/20 border text-xs cursor-pointer hover:bg-[#2DB549]/10 hover:text-[#1D7D31] hover:border-[#2DB549]/20 transition-colors">
                             <X className="w-3 h-3 mr-1" /> Off
                           </Badge>
                         )}
@@ -238,7 +238,7 @@ export default function AdminPincodesPage() {
                             <Check className="w-3.5 h-3.5" /> Yes
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 text-xs text-slate-400 font-medium cursor-pointer hover:text-[#2DB549] transition-colors">
+                          <span className="inline-flex items-center gap-1 text-xs text-white/50 font-medium cursor-pointer hover:text-[#2DB549] transition-colors">
                             <X className="w-3.5 h-3.5" /> No
                           </span>
                         )}

@@ -79,18 +79,18 @@ export default function TestSearch() {
   };
 
   return (
-    <section className="bg-white border-b border-border py-10">
+    <section className="bg-white/5 backdrop-blur-md border-b border-white/20 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center mb-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0B1F4E]">Find your test</h2>
-          <p className="text-slate-500 mt-1 text-sm">Search from 500+ tests by name, code, or condition</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white/95">Find your test</h2>
+          <p className="text-white/60 mt-1 text-sm">Search from 500+ tests by name, code, or condition</p>
         </div>
 
         <div className="max-w-2xl mx-auto" ref={wrapperRef}>
           <div className="relative">
             {/* Input */}
             <div className="relative flex items-center">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50 pointer-events-none" />
               <input
                 ref={inputRef}
                 type="text"
@@ -99,7 +99,7 @@ export default function TestSearch() {
                 onFocus={() => { if (results.length > 0) setOpen(true); }}
                 onKeyDown={handleKeyDown}
                 placeholder="e.g. CBC, diabetes, thyroid, vitamin D…"
-                className="w-full h-14 pl-12 pr-12 rounded-2xl border-2 border-border focus:border-[#2DB549] focus:outline-none text-base bg-white shadow-card transition-colors"
+                className="w-full h-14 pl-12 pr-12 rounded-2xl border-2 border-white/20 focus:border-[#2DB549] focus:outline-none text-base bg-white/5 backdrop-blur-md shadow-xl transition-colors"
                 aria-label="Search diagnostic tests"
                 aria-autocomplete="list"
                 aria-expanded={open}
@@ -108,7 +108,7 @@ export default function TestSearch() {
               {query && (
                 <button
                   onClick={clear}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/70"
                   aria-label="Clear search"
                 >
                   <X className="w-4 h-4" />
@@ -119,11 +119,11 @@ export default function TestSearch() {
             {/* Dropdown */}
             {open && (
               <div
-                className="absolute z-50 top-full left-0 right-0 mt-2 bg-white rounded-2xl border border-border shadow-xl overflow-hidden"
+                className="absolute z-50 top-full left-0 right-0 mt-2 bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl overflow-hidden"
                 role="listbox"
               >
                 {loading && (
-                  <div className="flex items-center gap-2 px-5 py-4 text-sm text-slate-500">
+                  <div className="flex items-center gap-2 px-5 py-4 text-sm text-white/60">
                     <Loader2 className="w-4 h-4 animate-spin text-[#2DB549]" />
                     Searching…
                   </div>
@@ -131,8 +131,8 @@ export default function TestSearch() {
 
                 {!loading && results.length === 0 && debouncedQuery.trim() && (
                   <div className="px-5 py-8 text-center">
-                    <p className="text-slate-500 text-sm mb-2">
-                      No tests found for &ldquo;<span className="font-semibold text-slate-700">{debouncedQuery}</span>&rdquo;
+                    <p className="text-white/60 text-sm mb-2">
+                      No tests found for &ldquo;<span className="font-semibold text-white/80">{debouncedQuery}</span>&rdquo;
                     </p>
                     <Link href="/tests" className="text-sm text-[#2DB549] hover:underline font-medium" onClick={() => setOpen(false)}>
                       Browse all tests →
@@ -155,27 +155,27 @@ export default function TestSearch() {
                             role="option"
                             aria-selected={idx === activeIndex}
                             className={cn(
-                              "flex items-center justify-between gap-4 px-5 py-3.5 border-b border-border last:border-0 transition-colors",
-                              idx === activeIndex ? "bg-[#F0FFF5]" : "hover:bg-slate-50"
+                              "flex items-center justify-between gap-4 px-5 py-3.5 border-b border-white/20 last:border-0 transition-colors",
+                              idx === activeIndex ? "bg-[#2DB549]/10" : "hover:bg-white/5"
                             )}
                           >
                             <div className="flex items-start gap-3 min-w-0">
-                              <div className="w-9 h-9 rounded-xl bg-[#F0FFF5] border border-[#2DB549]/15 flex items-center justify-center shrink-0 mt-0.5">
+                              <div className="w-9 h-9 rounded-xl bg-[#2DB549]/10 border border-[#2DB549]/15 flex items-center justify-center shrink-0 mt-0.5">
                                 <Droplets className="w-4 h-4 text-[#2DB549]" />
                               </div>
                               <div className="min-w-0">
                                 <Link
                                   href={`/tests/${test.slug}`}
-                                  className="font-semibold text-slate-800 text-sm hover:text-[#2DB549] transition-colors line-clamp-1"
+                                  className="font-semibold text-white/90 text-sm hover:text-[#2DB549] transition-colors line-clamp-1"
                                   onClick={() => setOpen(false)}
                                 >
                                   {test.name}
                                 </Link>
                                 <div className="flex items-center gap-2 mt-0.5 flex-wrap">
                                   {test.code && (
-                                    <span className="text-xs font-mono text-slate-400">{test.code}</span>
+                                    <span className="text-xs font-mono text-white/50">{test.code}</span>
                                   )}
-                                  <span className="flex items-center gap-1 text-xs text-slate-400">
+                                  <span className="flex items-center gap-1 text-xs text-white/50">
                                     <Clock className="w-3 h-3" />
                                     {test.turnaroundHours}h
                                   </span>
@@ -188,11 +188,11 @@ export default function TestSearch() {
 
                             <div className="flex items-center gap-3 shrink-0">
                               <div className="text-right">
-                                <p className="font-bold text-sm text-[#0B1F4E]">
+                                <p className="font-bold text-sm text-white/95">
                                   {formatPrice(test.discountedPrice ?? test.price)}
                                 </p>
                                 {test.discountedPrice && test.discountedPrice < test.price && (
-                                  <p className="text-xs text-slate-400 line-through">{formatPrice(test.price)}</p>
+                                  <p className="text-xs text-white/50 line-through">{formatPrice(test.price)}</p>
                                 )}
                               </div>
                               <button
@@ -208,7 +208,7 @@ export default function TestSearch() {
                                 className={cn(
                                   "flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-semibold transition-all shrink-0",
                                   inCart
-                                    ? "bg-[#F0FFF5] text-[#2DB549] border border-[#2DB549]/30 cursor-default"
+                                    ? "bg-[#2DB549]/10 text-[#2DB549] border border-[#2DB549]/30 cursor-default"
                                     : "bg-[#2DB549] hover:bg-[#25A03F] text-white shadow-green-glow"
                                 )}
                                 aria-label={inCart ? "Already added" : `Add ${test.name}`}
@@ -226,8 +226,8 @@ export default function TestSearch() {
                       })}
                     </ul>
 
-                    <div className="px-5 py-3 bg-slate-50 border-t border-border flex items-center justify-between">
-                      <span className="text-xs text-slate-400">
+                    <div className="px-5 py-3 bg-white/5 border-t border-white/20 flex items-center justify-between">
+                      <span className="text-xs text-white/50">
                         {results.length} result{results.length !== 1 ? "s" : ""} for &ldquo;{debouncedQuery}&rdquo;
                       </span>
                       <Link
@@ -247,12 +247,12 @@ export default function TestSearch() {
           {/* Popular searches */}
           {!query && (
             <div className="flex flex-wrap gap-2 mt-4 justify-center">
-              <span className="text-xs text-slate-400">Popular:</span>
+              <span className="text-xs text-white/50">Popular:</span>
               {["CBC", "HbA1c", "Thyroid", "Vitamin D", "Lipid Profile", "Kidney Function"].map((term) => (
                 <button
                   key={term}
                   onClick={() => { setQuery(term); inputRef.current?.focus(); }}
-                  className="text-xs px-3 py-1 rounded-full bg-slate-100 text-slate-600 hover:bg-[#F0FFF5] hover:text-[#2DB549] transition-colors border border-transparent hover:border-[#2DB549]/20"
+                  className="text-xs px-3 py-1 rounded-full bg-white/10 text-white/70 hover:bg-[#2DB549]/10 hover:text-[#2DB549] transition-colors border border-transparent hover:border-[#2DB549]/20"
                 >
                   {term}
                 </button>

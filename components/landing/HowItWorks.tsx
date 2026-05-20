@@ -40,8 +40,8 @@ const colorMap = {
     stepColor: "text-[#F97316]",
   },
   navy: {
-    badge: "bg-white/10 text-white/70",
-    icon: "bg-white/10 text-white",
+    badge: "bg-white/5 backdrop-blur-md/10 text-white/70",
+    icon: "bg-white/5 backdrop-blur-md/10 text-white",
     stepColor: "text-white/50",
   },
 };
@@ -74,7 +74,7 @@ export default function HowItWorks() {
               works
             </span>
           </h2>
-          <p className="text-slate-400 mt-3 max-w-md mx-auto text-base">
+          <p className="text-white/50 mt-3 max-w-md mx-auto text-base">
             Getting your diagnostic tests done has never been this easy.
             Three simple steps to accurate results.
           </p>
@@ -89,7 +89,7 @@ export default function HowItWorks() {
             const Icon = step.icon;
             return (
               <div key={step.step} className="relative">
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-7 h-full flex flex-col backdrop-blur-sm hover:bg-white/8 hover:border-white/20 transition-all duration-200">
+                <div className="bg-white/5 backdrop-blur-md/5 border border-white/10 rounded-2xl p-7 h-full flex flex-col backdrop-blur-sm hover:bg-white/5 backdrop-blur-md/8 hover:border-white/20 transition-all duration-200">
                   <div className="flex items-start gap-4 mb-5">
                     <div
                       className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${colors.icon}`}
@@ -105,7 +105,7 @@ export default function HowItWorks() {
                   <h3 className="font-bold text-white text-lg mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-slate-400 text-base leading-relaxed">
+                  <p className="text-white/50 text-base leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -113,7 +113,7 @@ export default function HowItWorks() {
                 {/* Mobile step connector */}
                 {idx < steps.length - 1 && (
                   <div className="md:hidden flex justify-center my-2">
-                    <div className="w-px h-6 bg-white/20" />
+                    <div className="w-px h-6 bg-white/5 backdrop-blur-md/20" />
                   </div>
                 )}
               </div>

@@ -32,7 +32,7 @@ export default function QuickResultPage() {
               <FlaskConical className="w-6 h-6 text-white" />
             </div>
             <div className="leading-none">
-              <span className="font-display italic text-2xl text-[#0B1F4E]">Janseva</span>
+              <span className="font-display italic text-2xl text-white/95">Janseva</span>
               <span className="block text-[10px] font-semibold tracking-widest text-[#0D9488] uppercase -mt-0.5">
                 Diagnostics
               </span>
@@ -40,9 +40,9 @@ export default function QuickResultPage() {
           </Link>
         </div>
 
-        <div className="bg-white rounded-2xl border border-border shadow-card-hover p-7">
-          <h1 className="text-2xl font-bold text-[#0B1F4E] mb-1">View Your Results</h1>
-          <p className="text-slate-500 text-sm mb-6">
+        <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl p-7">
+          <h1 className="text-2xl font-bold text-white/95 mb-1">View Your Results</h1>
+          <p className="text-white/60 text-sm mb-6">
             Enter your registered mobile number to access your diagnostic reports.
           </p>
 
@@ -50,7 +50,7 @@ export default function QuickResultPage() {
             <div className="space-y-1.5">
               <Label htmlFor="mobile">Mobile Number</Label>
               <div className="relative">
-                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
                 <Input
                   id="mobile"
                   type="tel"
@@ -76,8 +76,8 @@ export default function QuickResultPage() {
             </Button>
           </form>
 
-          <div className="mt-5 pt-5 border-t border-border text-center">
-            <p className="text-sm text-slate-500">
+          <div className="mt-5 pt-5 border-t border-white/20 text-center">
+            <p className="text-sm text-white/60">
               Want a full patient account?{" "}
               <Link href="/sign-in" className="text-[#0D9488] hover:underline font-medium">
                 Sign in
@@ -90,7 +90,7 @@ export default function QuickResultPage() {
           </div>
         </div>
 
-        <p className="text-center text-xs text-slate-400 mt-4">
+        <p className="text-center text-xs text-white/50 mt-4">
           Having trouble? Call{" "}
           <a href="tel:+911800000000" className="text-[#0D9488]">
             1800-000-0000

@@ -40,7 +40,7 @@ export default function PincodeInput({
     <div className={cn("space-y-2", className)}>
       <form onSubmit={handleSubmit} className="flex gap-2">
         <div className="relative flex-1">
-          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
           <Input
             type="text"
             inputMode="numeric"
@@ -72,17 +72,18 @@ export default function PincodeInput({
 
       {result && (
         <div
-          className={cn(
-            "flex items-start gap-2 text-sm px-3 py-2.5 rounded-lg",
-            result.available
-              ? "bg-teal-50 text-teal-800"
-              : "bg-red-50 text-red-700"
-          )}
+          className="flex items-start gap-2 text-sm px-3 py-2.5 rounded-lg"
+          style={{
+            background: result.available ? "rgba(29,158,117,0.12)" : "rgba(226,75,74,0.10)",
+            border: "1px solid rgba(255,255,255,0.15)",
+            color: "rgba(255,255,255,0.9)",
+            backdropFilter: "blur(10px)"
+          }}
         >
           {result.available ? (
-            <CheckCircle className="w-4 h-4 mt-0.5 text-teal-600 shrink-0" />
+            <CheckCircle className="w-4 h-4 mt-0.5 text-[#5dcaa5] shrink-0" />
           ) : (
-            <XCircle className="w-4 h-4 mt-0.5 text-red-500 shrink-0" />
+            <XCircle className="w-4 h-4 mt-0.5 text-red-400 shrink-0" />
           )}
           <div>
             {result.available ? (

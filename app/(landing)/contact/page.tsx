@@ -17,7 +17,7 @@ const CONTACT_INFO = [
     sub: "Toll-free · Mon–Sat 7 am–9 pm",
     href: "tel:+911800000000",
     color: "text-[#2DB549]",
-    bg: "bg-[#F0FFF5]",
+    bg: "bg-[#2DB549]/10",
     border: "border-[#2DB549]/20",
   },
   {
@@ -46,9 +46,9 @@ const CONTACT_INFO = [
     value: "Mon – Sat",
     sub: "7:00 AM to 9:00 PM IST",
     href: null,
-    color: "text-slate-600",
-    bg: "bg-slate-50",
-    border: "border-border",
+    color: "text-white/70",
+    bg: "bg-white/5",
+    border: "border-white/20",
   },
 ];
 
@@ -102,18 +102,18 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen relative z-10">
       {/* Header */}
-      <div className="bg-white border-b border-border py-12">
+      <div className="bg-white/5 backdrop-blur-md border-b border-white/20 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-xl bg-[#F0FFF5] border border-[#2DB549]/20 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#2DB549]/10 border border-[#2DB549]/20 flex items-center justify-center">
               <MessageSquare className="w-5 h-5 text-[#2DB549]" />
             </div>
             <span className="text-xs font-semibold text-[#1D7D31] uppercase tracking-widest">Contact Us</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0B1F4E] mb-2">How can we help?</h1>
-          <p className="text-slate-500 max-w-xl">
+          <h1 className="text-3xl md:text-4xl font-bold text-white/95 mb-2">How can we help?</h1>
+          <p className="text-white/60 max-w-xl">
             Reach out about bookings, reports, partnerships, or anything else. We typically respond within 4 hours.
           </p>
         </div>
@@ -124,12 +124,12 @@ export default function ContactPage() {
           {/* Left — contact info */}
           <div className="lg:col-span-2 space-y-4">
             {CONTACT_INFO.map(({ icon: Icon, label, value, sub, href, color, bg, border }) => (
-              <div key={label} className={cn("flex gap-4 p-5 rounded-2xl border bg-white shadow-card", border)}>
+              <div key={label} className={cn("flex gap-4 p-5 rounded-2xl border bg-white/5 backdrop-blur-md shadow-xl", border)}>
                 <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center shrink-0", bg)}>
                   <Icon className={cn("w-5 h-5", color)} />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 font-semibold uppercase tracking-wide mb-0.5">{label}</p>
+                  <p className="text-xs text-white/50 font-semibold uppercase tracking-wide mb-0.5">{label}</p>
                   {href ? (
                     <a href={href} className={cn("font-semibold text-sm hover:underline", color)}>
                       {value}
@@ -137,7 +137,7 @@ export default function ContactPage() {
                   ) : (
                     <p className={cn("font-semibold text-sm", color)}>{value}</p>
                   )}
-                  <p className="text-xs text-slate-500 mt-0.5">{sub}</p>
+                  <p className="text-xs text-white/60 mt-0.5">{sub}</p>
                 </div>
               </div>
             ))}
@@ -145,8 +145,8 @@ export default function ContactPage() {
 
           {/* Right — form */}
           <div className="lg:col-span-3">
-            <div className="bg-white rounded-2xl border border-border shadow-card p-8">
-              <h2 className="text-xl font-bold text-[#0B1F4E] mb-6">Send us a message</h2>
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl p-8">
+              <h2 className="text-xl font-bold text-white/95 mb-6">Send us a message</h2>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">

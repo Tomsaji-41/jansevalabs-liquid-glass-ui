@@ -24,8 +24,8 @@ export default async function AdminTestsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0B1F4E]">Tests</h1>
-          <p className="text-slate-500 mt-1">Manage diagnostic tests and pricing.</p>
+          <h1 className="text-2xl font-bold text-white/95">Tests</h1>
+          <p className="text-white/60 mt-1">Manage diagnostic tests and pricing.</p>
         </div>
         <Link
           href="/admin/tests/new"
@@ -37,8 +37,8 @@ export default async function AdminTestsPage() {
       </div>
 
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-        <Input placeholder="Search tests..." className="pl-9 h-11 bg-white" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
+        <Input placeholder="Search tests..." className="pl-9 h-11 bg-white/5 backdrop-blur-md" />
       </div>
 
       {allTests.length === 0 && (
@@ -49,31 +49,31 @@ export default async function AdminTestsPage() {
         </div>
       )}
 
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardContent className="p-0">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-border bg-surface">
-                  <th className="px-5 py-3 text-left font-semibold text-slate-500 text-xs uppercase tracking-wide">Test</th>
-                  <th className="px-5 py-3 text-left font-semibold text-slate-500 text-xs uppercase tracking-wide">Sample</th>
-                  <th className="px-5 py-3 text-left font-semibold text-slate-500 text-xs uppercase tracking-wide">Price</th>
-                  <th className="px-5 py-3 text-left font-semibold text-slate-500 text-xs uppercase tracking-wide">Status</th>
-                  <th className="px-5 py-3 text-right font-semibold text-slate-500 text-xs uppercase tracking-wide">Actions</th>
+                <tr className="border-b border-white/20 relative z-10">
+                  <th className="px-5 py-3 text-left font-semibold text-white/60 text-xs uppercase tracking-wide">Test</th>
+                  <th className="px-5 py-3 text-left font-semibold text-white/60 text-xs uppercase tracking-wide">Sample</th>
+                  <th className="px-5 py-3 text-left font-semibold text-white/60 text-xs uppercase tracking-wide">Price</th>
+                  <th className="px-5 py-3 text-left font-semibold text-white/60 text-xs uppercase tracking-wide">Status</th>
+                  <th className="px-5 py-3 text-right font-semibold text-white/60 text-xs uppercase tracking-wide">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {allTests.map((test) => (
-                  <tr key={test.id} className="hover:bg-surface/50 transition-colors">
+                  <tr key={test.id} className="hover:relative z-10/50 transition-colors">
                     <td className="px-5 py-4">
-                      <p className="font-medium text-slate-800">{test.name}</p>
-                      <p className="text-xs font-mono text-slate-400">{test.code ?? "—"} · {test.turnaroundHours}h</p>
+                      <p className="font-medium text-white/90">{test.name}</p>
+                      <p className="text-xs font-mono text-white/50">{test.code ?? "—"} · {test.turnaroundHours}h</p>
                     </td>
-                    <td className="px-5 py-4 text-slate-500 text-xs capitalize">{test.sampleType ?? "—"}</td>
+                    <td className="px-5 py-4 text-white/60 text-xs capitalize">{test.sampleType ?? "—"}</td>
                     <td className="px-5 py-4">
-                      <p className="font-semibold text-[#0B1F4E]">{formatPrice(test.discountedPrice ?? test.price)}</p>
+                      <p className="font-semibold text-white/95">{formatPrice(test.discountedPrice ?? test.price)}</p>
                       {test.discountedPrice && test.discountedPrice < test.price && (
-                        <p className="text-xs text-slate-400 line-through">{formatPrice(test.price)}</p>
+                        <p className="text-xs text-white/50 line-through">{formatPrice(test.price)}</p>
                       )}
                     </td>
                     <td className="px-5 py-4">
@@ -81,7 +81,7 @@ export default async function AdminTestsPage() {
                         {test.isActive ? (
                           <Badge className="bg-teal-50 text-teal-700 border-teal-100 border text-xs">Active</Badge>
                         ) : (
-                          <Badge className="bg-slate-100 text-slate-500 border-slate-200 border text-xs">Inactive</Badge>
+                          <Badge className="bg-white/10 text-white/60 border-slate-200 border text-xs">Inactive</Badge>
                         )}
                         {test.isPopular && (
                           <Badge className="bg-[#0D9488] text-white text-xs">Popular</Badge>
@@ -92,11 +92,11 @@ export default async function AdminTestsPage() {
                       <div className="flex items-center gap-2 justify-end">
                         <Link
                           href={`/admin/tests/${test.id}/edit`}
-                          className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-slate-500 hover:text-[#1E3A8A]")}
+                          className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-white/60 hover:text-[#1E3A8A]")}
                         >
                           <Pencil className="w-4 h-4" />
                         </Link>
-                        <Button variant="ghost" size="sm" className="text-slate-500 hover:text-amber-600">
+                        <Button variant="ghost" size="sm" className="text-white/60 hover:text-amber-600">
                           <ToggleLeft className="w-4 h-4" />
                         </Button>
                       </div>

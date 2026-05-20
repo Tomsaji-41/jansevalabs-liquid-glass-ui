@@ -25,10 +25,10 @@ export default async function PatientDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[#0B1F4E]">
+        <h1 className="text-2xl font-bold text-white/95">
           Welcome back, {session?.user?.name?.split(" ")[0] ?? "there"}!
         </h1>
-        <p className="text-slate-500 mt-1">Here&apos;s your health overview.</p>
+        <p className="text-white/60 mt-1">Here&apos;s your health overview.</p>
       </div>
 
       {/* Stats */}
@@ -39,7 +39,7 @@ export default async function PatientDashboard() {
           { icon: CalendarDays, label: "Upcoming", value: "1", color: "sky" },
           { icon: Clock, label: "Pending", value: "1", color: "amber" },
         ].map(({ icon: Icon, label, value, color }) => (
-          <Card key={label} className="border-border shadow-card">
+          <Card key={label} className="border-white/20 shadow-xl">
             <CardContent className="p-5">
               <div className={`w-10 h-10 rounded-xl mb-3 flex items-center justify-center ${
                 color === "teal" ? "bg-teal-50" :
@@ -52,17 +52,17 @@ export default async function PatientDashboard() {
                   color === "sky" ? "text-[#0284C7]" : "text-amber-600"
                 }`} />
               </div>
-              <p className="text-2xl font-bold text-[#0B1F4E]">{value}</p>
-              <p className="text-xs text-slate-500 mt-0.5">{label}</p>
+              <p className="text-2xl font-bold text-white/95">{value}</p>
+              <p className="text-xs text-white/60 mt-0.5">{label}</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
       {/* Recent orders */}
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardHeader className="flex flex-row items-center justify-between pb-3">
-          <CardTitle className="text-base font-semibold text-[#0B1F4E]">Recent Orders</CardTitle>
+          <CardTitle className="text-base font-semibold text-white/95">Recent Orders</CardTitle>
           <Link
             href="/patient/results"
             className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-[#0D9488] hover:text-[#0F766E]")}
@@ -77,18 +77,18 @@ export default async function PatientDashboard() {
               <Link
                 key={order.id}
                 href={`/patient/results/${order.id}`}
-                className="flex items-center gap-4 p-3 rounded-xl border border-border hover:bg-surface transition-colors"
+                className="flex items-center gap-4 p-3 rounded-xl border border-white/20 hover:relative z-10 transition-colors"
               >
                 <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center shrink-0">
                   <FlaskConical className="w-5 h-5 text-[#0D9488]" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-slate-800 text-sm">#{order.orderNumber}</p>
-                  <p className="text-xs text-slate-500 truncate">{order.tests.join(", ")}</p>
+                  <p className="font-semibold text-white/90 text-sm">#{order.orderNumber}</p>
+                  <p className="text-xs text-white/60 truncate">{order.tests.join(", ")}</p>
                 </div>
                 <div className="text-right shrink-0">
                   <Badge className={`text-xs border ${st.class} mb-1`}>{st.label}</Badge>
-                  <p className="text-xs text-slate-400">{formatDate(order.date)}</p>
+                  <p className="text-xs text-white/50">{formatDate(order.date)}</p>
                 </div>
               </Link>
             );

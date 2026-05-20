@@ -48,19 +48,19 @@ const features = [
 
 export default function WhyJanseva() {
   return (
-    <section className="py-16 md:py-20 bg-white">
+    <section className="py-16 md:py-20 bg-white/5 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <span className="inline-block bg-[#F0FFF5] text-[#1D7D31] text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-[#2DB549]/10 text-[#1D7D31] text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
             Why Choose Us
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F4E]">
+          <h2 className="text-3xl md:text-4xl font-bold text-white/95">
             Healthcare you can{" "}
             <span className="font-display italic font-normal text-[#2DB549]">
               trust
             </span>
           </h2>
-          <p className="text-slate-600 mt-3 max-w-lg mx-auto">
+          <p className="text-white/70 mt-3 max-w-lg mx-auto">
             Thousands of families in your city rely on Janseva Labs for
             accurate diagnostics and compassionate care.
           </p>
@@ -72,15 +72,15 @@ export default function WhyJanseva() {
             return (
               <div
                 key={feature.title}
-                className="group p-6 rounded-2xl border border-border hover:border-[#2DB549]/30 hover:bg-[#F0FFF5]/60 transition-all duration-200 cursor-default"
+                className="group p-6 rounded-2xl border border-white/20 hover:border-[#2DB549]/30 hover:bg-[#2DB549]/10/60 transition-all duration-200 cursor-default"
               >
-                <div className="w-11 h-11 rounded-xl bg-[#F0FFF5] group-hover:bg-white flex items-center justify-center mb-4 transition-colors border border-[#2DB549]/20 group-hover:shadow-sm">
+                <div className="w-11 h-11 rounded-xl bg-[#2DB549]/10 group-hover:bg-white/5 backdrop-blur-md flex items-center justify-center mb-4 transition-colors border border-[#2DB549]/20 group-hover:shadow-sm">
                   <Icon className="w-5 h-5 text-[#2DB549]" />
                 </div>
-                <h3 className="font-semibold text-[#0B1F4E] mb-2">
+                <h3 className="font-semibold text-white/95 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-base text-slate-600 leading-relaxed">
+                <p className="text-base text-white/70 leading-relaxed">
                   {feature.description}
                 </p>
               </div>

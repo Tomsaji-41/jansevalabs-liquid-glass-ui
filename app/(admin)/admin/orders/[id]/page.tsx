@@ -14,7 +14,7 @@ const STATUS_MAP: Record<string, { label: string; class: string }> = {
   booked: { label: "Booked", class: "bg-blue-50 text-blue-700 border-blue-100" },
   sample_collected: { label: "Sample Collected", class: "bg-amber-50 text-amber-700 border-amber-100" },
   processing: { label: "Processing", class: "bg-purple-50 text-purple-700 border-purple-100" },
-  report_ready: { label: "Report Ready", class: "bg-[#F0FFF5] text-[#1D7D31] border-[#2DB549]/20" },
+  report_ready: { label: "Report Ready", class: "bg-[#2DB549]/10 text-[#1D7D31] border-[#2DB549]/20" },
   cancelled: { label: "Cancelled", class: "bg-red-50 text-red-700 border-red-100" },
 };
 
@@ -77,15 +77,15 @@ export default async function AdminOrderDetailPage({
       <div className="flex items-center gap-3">
         <Link
           href="/admin/orders"
-          className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-slate-500")}
+          className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-white/60")}
         >
           <ArrowLeft className="w-4 h-4 mr-1" />
           Back
         </Link>
         <div className="flex-1 flex items-center justify-between gap-4 flex-wrap">
           <div>
-            <h1 className="text-2xl font-bold text-[#0B1F4E]">Order #{orderRow.orderNumber}</h1>
-            <p className="text-slate-500 text-sm mt-0.5">
+            <h1 className="text-2xl font-bold text-white/95">Order #{orderRow.orderNumber}</h1>
+            <p className="text-white/60 text-sm mt-0.5">
               Placed on {orderRow.createdAt ? formatDate(orderRow.createdAt) : "—"}
             </p>
           </div>
@@ -94,7 +94,7 @@ export default async function AdminOrderDetailPage({
       </div>
 
       {/* Progress tracker */}
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardContent className="p-6">
           <div className="flex items-center gap-0">
             {ORDER_STEPS.map((step, i) => {
@@ -106,11 +106,11 @@ export default async function AdminOrderDetailPage({
                   <div className="flex flex-col items-center">
                     <div className={cn(
                       "w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold shrink-0",
-                      done ? "bg-[#2DB549] border-[#2DB549] text-white" : "bg-white border-border text-slate-400"
+                      done ? "bg-[#2DB549] border-[#2DB549] text-white" : "bg-white/5 backdrop-blur-md border-white/20 text-white/50"
                     )}>
                       {i + 1}
                     </div>
-                    <span className={cn("text-[10px] mt-1 text-center leading-tight w-16", done ? "text-[#2DB549] font-semibold" : "text-slate-400")}>
+                    <span className={cn("text-[10px] mt-1 text-center leading-tight w-16", done ? "text-[#2DB549] font-semibold" : "text-white/50")}>
                       {label}
                     </span>
                   </div>
@@ -126,56 +126,56 @@ export default async function AdminOrderDetailPage({
 
       <div className="grid md:grid-cols-2 gap-6">
         {/* Patient */}
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E] flex items-center gap-2">
+            <CardTitle className="text-sm font-semibold text-white/95 flex items-center gap-2">
               <User className="w-4 h-4" /> Patient Details
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
             <div className="flex justify-between">
-              <span className="text-slate-500">Name</span>
-              <span className="font-medium text-slate-800">{orderRow.patientName ?? "—"}</span>
+              <span className="text-white/60">Name</span>
+              <span className="font-medium text-white/90">{orderRow.patientName ?? "—"}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-500">Mobile</span>
-              <span className="font-mono text-slate-700 flex items-center gap-1.5">
+              <span className="text-white/60">Mobile</span>
+              <span className="font-mono text-white/80 flex items-center gap-1.5">
                 <Phone className="w-3.5 h-3.5" /> {orderRow.patientMobile ?? "—"}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-500">Email</span>
-              <span className="text-slate-700">{orderRow.patientEmail ?? "—"}</span>
+              <span className="text-white/60">Email</span>
+              <span className="text-white/80">{orderRow.patientEmail ?? "—"}</span>
             </div>
           </CardContent>
         </Card>
 
         {/* Collection */}
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E] flex items-center gap-2">
+            <CardTitle className="text-sm font-semibold text-white/95 flex items-center gap-2">
               <MapPin className="w-4 h-4" /> Collection Details
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
             <div className="flex justify-between">
-              <span className="text-slate-500">Mode</span>
-              <span className="font-medium capitalize text-slate-800">{orderRow.collectionMode}</span>
+              <span className="text-white/60">Mode</span>
+              <span className="font-medium capitalize text-white/90">{orderRow.collectionMode}</span>
             </div>
             {orderRow.collectionMode === "home" && orderRow.collectionAddress && (
               <div className="flex justify-between gap-4">
-                <span className="text-slate-500 shrink-0">Address</span>
-                <span className="text-slate-700 text-right">
+                <span className="text-white/60 shrink-0">Address</span>
+                <span className="text-white/80 text-right">
                   {orderRow.collectionAddress}, {orderRow.collectionPincode}
                 </span>
               </div>
             )}
             {orderRow.collectionPincode && (
               <div className="flex justify-between">
-                <span className="text-slate-500 flex items-center gap-1.5">
+                <span className="text-white/60 flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5" /> Pincode
                 </span>
-                <span className="font-mono text-slate-700">{orderRow.collectionPincode}</span>
+                <span className="font-mono text-white/80">{orderRow.collectionPincode}</span>
               </div>
             )}
           </CardContent>
@@ -183,35 +183,35 @@ export default async function AdminOrderDetailPage({
       </div>
 
       {/* Items */}
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardHeader>
-          <CardTitle className="text-sm font-semibold text-[#0B1F4E] flex items-center gap-2">
+          <CardTitle className="text-sm font-semibold text-white/95 flex items-center gap-2">
             <Package className="w-4 h-4" /> Order Items
           </CardTitle>
         </CardHeader>
         <CardContent>
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-border text-left">
-                <th className="pb-2 font-semibold text-slate-500 text-xs uppercase tracking-wide">Item</th>
-                <th className="pb-2 font-semibold text-slate-500 text-xs uppercase tracking-wide text-right">Price</th>
+              <tr className="border-b border-white/20 text-left">
+                <th className="pb-2 font-semibold text-white/60 text-xs uppercase tracking-wide">Item</th>
+                <th className="pb-2 font-semibold text-white/60 text-xs uppercase tracking-wide text-right">Price</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
               {orderItems.map((item, i) => (
                 <tr key={i}>
                   <td className="py-3">
-                    <p className="font-medium text-slate-800">{item.name}</p>
-                    <p className="text-xs text-slate-400 capitalize">{item.type}</p>
+                    <p className="font-medium text-white/90">{item.name}</p>
+                    <p className="text-xs text-white/50 capitalize">{item.type}</p>
                   </td>
-                  <td className="py-3 text-right font-semibold text-slate-700">{formatPrice(item.price)}</td>
+                  <td className="py-3 text-right font-semibold text-white/80">{formatPrice(item.price)}</td>
                 </tr>
               ))}
             </tbody>
           </table>
 
-          <div className="mt-4 pt-4 border-t border-border space-y-1.5 text-sm">
-            <div className="flex justify-between text-slate-500">
+          <div className="mt-4 pt-4 border-t border-white/20 space-y-1.5 text-sm">
+            <div className="flex justify-between text-white/60">
               <span>Subtotal</span>
               <span>{formatPrice(orderRow.subtotal)}</span>
             </div>
@@ -221,7 +221,7 @@ export default async function AdminOrderDetailPage({
                 <span>−{formatPrice(orderRow.discount ?? 0)}</span>
               </div>
             )}
-            <div className="flex justify-between font-bold text-[#0B1F4E] text-base pt-1 border-t border-border">
+            <div className="flex justify-between font-bold text-white/95 text-base pt-1 border-t border-white/20">
               <span>Total</span>
               <span>{formatPrice(orderRow.total)}</span>
             </div>
@@ -231,18 +231,18 @@ export default async function AdminOrderDetailPage({
 
       {/* Payment + Results */}
       <div className="grid md:grid-cols-2 gap-6">
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E] flex items-center gap-2">
+            <CardTitle className="text-sm font-semibold text-white/95 flex items-center gap-2">
               <CreditCard className="w-4 h-4" /> Payment
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
             <div className="flex justify-between">
-              <span className="text-slate-500">Status</span>
+              <span className="text-white/60">Status</span>
               <Badge className={
                 orderRow.paymentStatus === "paid"
-                  ? "bg-[#F0FFF5] text-[#1D7D31] border-[#2DB549]/20 border"
+                  ? "bg-[#2DB549]/10 text-[#1D7D31] border-[#2DB549]/20 border"
                   : orderRow.paymentStatus === "failed"
                   ? "bg-red-50 text-red-700 border-red-100 border"
                   : "bg-amber-50 text-amber-700 border-amber-100 border"
@@ -251,27 +251,27 @@ export default async function AdminOrderDetailPage({
               </Badge>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-500">Razorpay ID</span>
-              <span className="font-mono text-xs text-slate-700">{orderRow.razorpayPaymentId ?? "—"}</span>
+              <span className="text-white/60">Razorpay ID</span>
+              <span className="font-mono text-xs text-white/80">{orderRow.razorpayPaymentId ?? "—"}</span>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border-border shadow-card">
+        <Card className="border-white/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E] flex items-center gap-2">
+            <CardTitle className="text-sm font-semibold text-white/95 flex items-center gap-2">
               <FileBarChart className="w-4 h-4" /> Reports
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-2 text-sm">
             {orderResults.length === 0 ? (
-              <p className="text-xs text-slate-400">No results uploaded yet.</p>
+              <p className="text-xs text-white/50">No results uploaded yet.</p>
             ) : (
               orderResults.map((r) => (
                 <div key={r.id} className="flex items-center justify-between">
-                  <span className="text-slate-700 text-xs">
+                  <span className="text-white/80 text-xs">
                     {r.testName ?? "—"}
-                    {r.testCode && <span className="font-mono text-slate-400 ml-1">({r.testCode})</span>}
+                    {r.testCode && <span className="font-mono text-white/50 ml-1">({r.testCode})</span>}
                   </span>
                   {r.reportUrl ? (
                     <a href={r.reportUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-[#2DB549] hover:underline font-medium">
@@ -289,9 +289,9 @@ export default async function AdminOrderDetailPage({
 
       {/* Status update */}
       {orderRow.status !== "cancelled" && (
-        <Card className="border-[#1E3A8A]/20 bg-navy-50 shadow-card">
+        <Card className="border-[#1E3A8A]/20 bg-navy-50 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold text-[#0B1F4E]">Update Order Status</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/95">Update Order Status</CardTitle>
           </CardHeader>
           <CardContent>
             <OrderStatusActions orderId={orderRow.id} currentStatus={orderRow.status ?? "booked"} />

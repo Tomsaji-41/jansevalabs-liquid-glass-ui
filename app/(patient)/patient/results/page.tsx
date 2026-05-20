@@ -38,21 +38,21 @@ export default function PatientResultsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[#0B1F4E]">My Results</h1>
-        <p className="text-slate-500 mt-1">All your diagnostic reports in one place.</p>
+        <h1 className="text-2xl font-bold text-white/95">My Results</h1>
+        <p className="text-white/60 mt-1">All your diagnostic reports in one place.</p>
       </div>
 
       <div className="space-y-4">
         {MOCK_RESULTS.map((result) => (
-          <div key={result.id} className="bg-white rounded-2xl border border-border shadow-card p-5">
+          <div key={result.id} className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl p-5">
             <div className="flex items-start justify-between gap-3 mb-4">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center shrink-0">
                   <FileText className="w-5 h-5 text-[#0D9488]" />
                 </div>
                 <div>
-                  <p className="font-semibold text-slate-800">{result.testName}</p>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="font-semibold text-white/90">{result.testName}</p>
+                  <p className="text-xs text-white/60 mt-0.5">
                     #{result.orderNumber} · {formatDate(result.date)}
                   </p>
                 </div>
@@ -72,7 +72,7 @@ export default function PatientResultsPage() {
 
             {result.parameters.length > 0 && (
               <>
-                <div className="border-t border-border pt-4 mt-2">
+                <div className="border-t border-white/20 pt-4 mt-2">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {result.parameters.map((param) => (
                       <div
@@ -85,14 +85,14 @@ export default function PatientResultsPage() {
                             : "bg-red-50 border-red-100"
                         }`}
                       >
-                        <p className="text-xs text-slate-500 mb-0.5">{param.name}</p>
+                        <p className="text-xs text-white/60 mb-0.5">{param.name}</p>
                         <p className={`font-bold ${
                           param.status === "normal" ? "text-teal-700" :
                           param.status === "low" ? "text-amber-700" : "text-red-700"
                         }`}>
                           {param.value} <span className="font-normal text-xs">{param.unit}</span>
                         </p>
-                        <p className="text-[11px] text-slate-400">Ref: {param.range}</p>
+                        <p className="text-[11px] text-white/50">Ref: {param.range}</p>
                       </div>
                     ))}
                   </div>

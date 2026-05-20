@@ -41,9 +41,20 @@ export default function SignUpPage() {
 
   return (
     <div className="w-full max-w-md">
-      <div className="bg-white rounded-2xl border border-border shadow-card-hover p-7">
-        <h1 className="text-2xl font-bold text-[#0B1F4E] mb-1">Create Account</h1>
-        <p className="text-slate-500 text-sm mb-6">
+      <div 
+        className="rounded-2xl p-7"
+        style={{
+          background: "rgba(255, 255, 255, 0.10)",
+          backdropFilter: "blur(40px) saturate(180%) brightness(1.1)",
+          WebkitBackdropFilter: "blur(40px) saturate(180%) brightness(1.1)",
+          border: "1px solid rgba(255, 255, 255, 0.25)",
+          borderTop: "1px solid rgba(255, 255, 255, 0.45)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.1), 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12)",
+        }}
+      >
+        <h1 className="text-2xl font-bold text-white/95 mb-1">Create Account</h1>
+        <p className="text-white/60 text-sm mb-6">
           Register to access your reports and book tests easily.
         </p>
 
@@ -84,13 +95,25 @@ export default function SignUpPage() {
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#0D9488] hover:bg-[#0F766E] text-white h-11 font-semibold"
+            className="w-full font-semibold"
+            style={{
+              background: "rgba(29,158,117,0.55)",
+              border: "1px solid rgba(255,255,255,0.30)",
+              borderTop: "1px solid rgba(255,255,255,0.50)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 16px rgba(0,0,0,0.2)",
+              borderRadius: "14px",
+              color: "rgba(255,255,255,0.95)",
+              minHeight: "52px",
+              fontSize: "16px"
+            }}
           >
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Create Account"}
           </Button>
         </form>
 
-        <p className="mt-5 text-center text-sm text-slate-500">
+        <p className="mt-5 text-center text-sm text-white/60">
           Already have an account?{" "}
           <Link href="/sign-in" className="text-[#0D9488] hover:underline font-medium">
             Sign in

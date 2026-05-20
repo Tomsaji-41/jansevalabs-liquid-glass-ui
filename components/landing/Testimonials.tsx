@@ -36,13 +36,13 @@ function Stars({ count }: { count: number }) {
 
 export default function Testimonials() {
   return (
-    <section className="py-16 md:py-20 bg-surface">
+    <section className="py-16 md:py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <span className="inline-block bg-amber-50 text-amber-700 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
             Patient Stories
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0B1F4E]">
+          <h2 className="text-3xl md:text-4xl font-bold text-white/95">
             Loved by{" "}
             <span className="font-display italic font-normal text-[#2DB549]">
               thousands
@@ -54,19 +54,19 @@ export default function Testimonials() {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="bg-white rounded-2xl border border-border p-6 shadow-card flex flex-col gap-4"
+              className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 p-6 shadow-xl flex flex-col gap-4"
             >
               <Stars count={t.rating} />
-              <p className="text-slate-600 text-base leading-relaxed flex-1">
+              <p className="text-white/70 text-base leading-relaxed flex-1">
                 &ldquo;{t.text}&rdquo;
               </p>
-              <div className="flex items-center gap-3 pt-2 border-t border-border">
+              <div className="flex items-center gap-3 pt-2 border-t border-white/20">
                 <div className="w-9 h-9 rounded-full bg-green-gradient flex items-center justify-center text-white font-semibold text-sm shrink-0">
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-semibold text-slate-800 text-sm">{t.name}</p>
-                  <p className="text-xs text-slate-400">
+                  <p className="font-semibold text-white/90 text-sm">{t.name}</p>
+                  <p className="text-xs text-white/50">
                     {t.location} · {t.date}
                   </p>
                 </div>
@@ -76,13 +76,13 @@ export default function Testimonials() {
         </div>
 
         {/* Overall rating */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-slate-500">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-white/60">
           <div className="flex gap-0.5">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
             ))}
           </div>
-          <span className="font-semibold text-slate-700">4.9 out of 5</span>
+          <span className="font-semibold text-white/80">4.9 out of 5</span>
           <span>·</span>
           <span>Based on 2,400+ Google reviews</span>
         </div>

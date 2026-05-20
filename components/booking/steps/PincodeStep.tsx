@@ -43,13 +43,13 @@ export default function PincodeStep({ data, onNext }: Props) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-bold text-[#0B1F4E] mb-1">Check Coverage</h2>
-        <p className="text-sm text-slate-500">Enter your pincode to confirm we serve your area.</p>
+        <h2 className="text-xl font-bold text-white/95 mb-1">Check Coverage</h2>
+        <p className="text-sm text-white/60">Enter your pincode to confirm we serve your area.</p>
       </div>
 
       <div className="flex gap-3">
         <div className="relative flex-1">
-          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
           <Input
             type="text"
             inputMode="numeric"

@@ -57,7 +57,7 @@ export default function TestCard({
   const SampleIcon = sampleType === "urine" ? Beaker : Droplets;
 
   return (
-    <div className="group bg-white border border-border rounded-2xl p-5 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200 flex flex-col">
+    <div className="group bg-white/5 backdrop-blur-md border border-white/20 rounded-2xl p-5 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 flex flex-col">
       {/* Top */}
       <div className="flex items-start justify-between mb-3">
         <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center border border-teal-100">
@@ -79,14 +79,14 @@ export default function TestCard({
 
       {/* Name */}
       <Link href={`/tests/${slug}`} className="flex-1">
-        <h3 className="font-semibold text-slate-800 text-sm leading-tight mb-1 group-hover:text-[#0D9488] transition-colors">
+        <h3 className="font-semibold text-white/90 text-sm leading-tight mb-1 group-hover:text-[#0D9488] transition-colors">
           {name}
         </h3>
         {code && (
-          <p className="text-[11px] font-mono text-slate-400 mb-2">{code}</p>
+          <p className="text-[11px] font-mono text-white/50 mb-2">{code}</p>
         )}
         {shortDescription && (
-          <p className="text-xs text-slate-500 leading-relaxed line-clamp-2 mb-3">
+          <p className="text-xs text-white/60 leading-relaxed line-clamp-2 mb-3">
             {shortDescription}
           </p>
         )}
@@ -96,13 +96,13 @@ export default function TestCard({
       {(turnaroundHours || sampleType) && (
         <div className="flex items-center gap-3 mb-4">
           {turnaroundHours && (
-            <span className="flex items-center gap-1 text-[11px] text-slate-500">
+            <span className="flex items-center gap-1 text-[11px] text-white/60">
               <Clock className="w-3 h-3" />
               {turnaroundHours}h report
             </span>
           )}
           {sampleType && (
-            <span className="text-[11px] text-slate-400 capitalize">{sampleType}</span>
+            <span className="text-[11px] text-white/50 capitalize">{sampleType}</span>
           )}
         </div>
       )}
@@ -110,11 +110,11 @@ export default function TestCard({
       {/* Price + CTA */}
       <div className="flex items-center justify-between mt-auto">
         <div>
-          <p className="text-lg font-bold text-[#0B1F4E]">
+          <p className="text-lg font-bold text-white/95">
             {formatPrice(effectivePrice)}
           </p>
           {discount > 0 && (
-            <p className="text-xs text-slate-400 line-through">
+            <p className="text-xs text-white/50 line-through">
               {formatPrice(price)}
             </p>
           )}

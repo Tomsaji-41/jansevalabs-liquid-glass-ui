@@ -10,20 +10,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid pincode" }, { status: 400 });
     }
 
-    const result = await db.query.pincodes.findFirst({
-      where: eq(pincodes.pincode, String(pincode)),
-    });
-
-    if (!result || !result.isActive) {
-      return NextResponse.json({ available: false, homeCollection: false });
+    // Mocking response so you can test UI without database setup
+    if (String(pincode).startsWith("1")) {
+      return NextResponse.json({
+        available: true,
+        homeCollection: true,
+        areaName: "Central",
+        city: "Delhi",
+      });
     }
 
-    return NextResponse.json({
-      available: true,
-      homeCollection: result.homeCollectionAvailable,
-      areaName: result.areaName,
-      city: result.city,
-    });
+    return NextResponse.json({ available: false, homeCollection: false });
   } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }

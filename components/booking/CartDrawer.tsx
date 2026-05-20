@@ -43,25 +43,25 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
   if (count === 0) {
     return (
       <div className="flex flex-col h-full items-center justify-center text-center px-6 gap-4">
-        <div className="w-20 h-20 rounded-full bg-[#F0FFF5] flex items-center justify-center">
+        <div className="w-20 h-20 rounded-full bg-[#2DB549]/10 flex items-center justify-center">
           <ShoppingCart className="w-9 h-9 text-[#2DB549]" />
         </div>
         <div>
-          <h3 className="font-semibold text-slate-800 text-lg">Your cart is empty</h3>
-          <p className="text-sm text-slate-500 mt-1">Add tests to get started</p>
+          <h3 className="font-semibold text-white/90 text-lg">Your cart is empty</h3>
+          <p className="text-sm text-white/60 mt-1">Add tests to get started</p>
         </div>
 
         {/* Popular picks when empty */}
         <div className="w-full mt-2">
-          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Popular picks</p>
+          <p className="text-xs font-semibold text-white/50 uppercase tracking-widest mb-3">Popular picks</p>
           <div className="space-y-2">
             {SUGGESTION_POOL.slice(0, 3).map((s) => (
               <div
                 key={s.id}
-                className="flex items-center justify-between p-3 rounded-xl bg-[#F0FFF5] border border-[#2DB549]/15"
+                className="flex items-center justify-between p-3 rounded-xl bg-[#2DB549]/10 border border-[#2DB549]/15"
               >
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-slate-800 truncate">{s.name}</p>
+                  <p className="text-sm font-medium text-white/90 truncate">{s.name}</p>
                   <p className="text-xs text-[#2DB549] font-semibold mt-0.5">{formatPrice(s.discountedPrice!)}</p>
                 </div>
                 <button
@@ -90,9 +90,9 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="px-6 py-5 border-b border-border">
-        <h2 className="font-semibold text-slate-800 text-lg">Your Cart</h2>
-        <p className="text-sm text-slate-500 mt-0.5">
+      <div className="px-6 py-5 border-b border-white/20">
+        <h2 className="font-semibold text-white/90 text-lg">Your Cart</h2>
+        <p className="text-sm text-white/60 mt-0.5">
           {count} {count === 1 ? "item" : "items"} added
         </p>
       </div>
@@ -104,23 +104,23 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
           {items.map((item) => (
             <div
               key={`${item.type}-${item.id}`}
-              className="flex items-start gap-3 p-3.5 rounded-xl bg-surface border border-border"
+              className="flex items-start gap-3 p-3.5 rounded-xl relative z-10 border border-white/20"
             >
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-0.5">
                   <Badge
                     variant="secondary"
-                    className="text-[10px] px-1.5 py-0 bg-[#F0FFF5] text-[#1D7D31] border-[#2DB549]/20 capitalize"
+                    className="text-[10px] px-1.5 py-0 bg-[#2DB549]/10 text-[#1D7D31] border-[#2DB549]/20 capitalize"
                   >
                     {item.type}
                   </Badge>
                   {item.code && (
-                    <span className="text-[10px] font-mono text-slate-400">
+                    <span className="text-[10px] font-mono text-white/50">
                       {item.code}
                     </span>
                   )}
                 </div>
-                <p className="text-sm font-medium text-slate-800 leading-tight">
+                <p className="text-sm font-medium text-white/90 leading-tight">
                   {item.name}
                 </p>
                 <div className="flex items-center gap-2 mt-1">
@@ -129,7 +129,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
                       <span className="text-sm font-semibold text-[#2DB549]">
                         {formatPrice(item.discountedPrice)}
                       </span>
-                      <span className="text-xs text-slate-400 line-through">
+                      <span className="text-xs text-white/50 line-through">
                         {formatPrice(item.price)}
                       </span>
                     </>
@@ -142,7 +142,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
               </div>
               <button
                 onClick={() => removeItem(item.id, item.type)}
-                className="text-slate-400 hover:text-red-500 transition-colors p-1 rounded-lg hover:bg-red-50 mt-0.5"
+                className="text-white/50 hover:text-red-500 transition-colors p-1 rounded-lg hover:bg-red-50 mt-0.5"
                 aria-label="Remove item"
               >
                 <Trash2 className="w-4 h-4" />
@@ -156,7 +156,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
               {/* Divider heading */}
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="w-3.5 h-3.5 text-[#F47920]" />
-                <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
+                <span className="text-xs font-semibold text-white/60 uppercase tracking-widest">
                   You might also need
                 </span>
               </div>
@@ -170,16 +170,16 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
                   return (
                     <div
                       key={s.id}
-                      className="flex items-center gap-3 p-3 rounded-xl border border-border hover:border-[#2DB549]/30 hover:bg-[#F0FFF5]/50 transition-all duration-150"
+                      className="flex items-center gap-3 p-3 rounded-xl border border-white/20 hover:border-[#2DB549]/30 hover:bg-[#2DB549]/10/50 transition-all duration-150"
                     >
                       {/* Icon */}
-                      <div className="w-9 h-9 rounded-lg bg-[#F0FFF5] border border-[#2DB549]/15 flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 rounded-lg bg-[#2DB549]/10 border border-[#2DB549]/15 flex items-center justify-center shrink-0">
                         <Droplets className="w-4 h-4 text-[#2DB549]" />
                       </div>
 
                       {/* Info */}
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-slate-800 leading-tight truncate">
+                        <p className="text-sm font-medium text-white/90 leading-tight truncate">
                           {s.name}
                         </p>
                         <div className="flex items-center gap-2 mt-0.5">
@@ -192,7 +192,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
                             </Badge>
                           )}
                           {ta && (
-                            <span className="text-[10px] text-slate-400 flex items-center gap-0.5">
+                            <span className="text-[10px] text-white/50 flex items-center gap-0.5">
                               <Clock className="w-2.5 h-2.5" />
                               {ta}
                             </span>
@@ -227,10 +227,10 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
       </ScrollArea>
 
       {/* Footer */}
-      <div className="px-6 py-5 border-t border-border space-y-4 bg-white">
+      <div className="px-6 py-5 border-t border-white/20 space-y-4 bg-white/5 backdrop-blur-md">
         <div className="flex items-center justify-between">
-          <span className="text-sm text-slate-500">Total</span>
-          <span className="text-xl font-bold text-[#0B1F4E]">
+          <span className="text-sm text-white/60">Total</span>
+          <span className="text-xl font-bold text-white/95">
             {formatPrice(total)}
           </span>
         </div>
@@ -245,7 +245,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
           Proceed to Book
           <ArrowRight className="w-4 h-4" />
         </Link>
-        <p className="text-center text-xs text-slate-400">
+        <p className="text-center text-xs text-white/50">
           Home collection available · No hidden charges
         </p>
       </div>

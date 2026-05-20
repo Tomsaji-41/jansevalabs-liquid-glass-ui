@@ -68,7 +68,7 @@ export default function HealthPackages() {
             <h2 className="text-3xl md:text-4xl font-bold text-white">
               Health Packages
             </h2>
-            <p className="text-slate-400 mt-2 max-w-md text-base">
+            <p className="text-white/50 mt-2 max-w-md text-base">
               Bundled tests at significantly lower prices. Ideal for annual checkups and preventive health monitoring.
             </p>
           </div>
@@ -88,7 +88,7 @@ export default function HealthPackages() {
               <div
                 key={pkg.slug}
                 className={cn(
-                  "relative bg-white rounded-2xl p-6 flex flex-col shadow-xl",
+                  "relative bg-white/5 backdrop-blur-md rounded-2xl p-6 flex flex-col shadow-xl",
                   pkg.isPopular ? "ring-2 ring-[#F47920] shadow-orange-glow scale-[1.02]" : ""
                 )}
               >
@@ -109,12 +109,12 @@ export default function HealthPackages() {
                   </Badge>
                 </div>
 
-                <h3 className="font-bold text-[#0B1F4E] text-lg mb-1.5">{pkg.name}</h3>
-                <p className="text-sm text-slate-500 mb-5 leading-relaxed">{pkg.description}</p>
+                <h3 className="font-bold text-white/95 text-lg mb-1.5">{pkg.name}</h3>
+                <p className="text-sm text-white/60 mb-5 leading-relaxed">{pkg.description}</p>
 
                 <ul className="space-y-2.5 mb-6 flex-1">
                   {pkg.tests.map((test) => (
-                    <li key={test} className="flex items-center gap-2 text-sm text-slate-600">
+                    <li key={test} className="flex items-center gap-2 text-sm text-white/70">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 ${colors.checkColor}`} />
                       {test}
                     </li>
@@ -123,10 +123,10 @@ export default function HealthPackages() {
 
                 <div className="border-t border-slate-100 pt-4">
                   <div className="flex items-baseline gap-2 mb-4">
-                    <span className="text-2xl font-bold text-[#0B1F4E]">
+                    <span className="text-2xl font-bold text-white/95">
                       {formatPrice(pkg.discountedPrice)}
                     </span>
-                    <span className="text-sm text-slate-400 line-through">
+                    <span className="text-sm text-white/50 line-through">
                       {formatPrice(pkg.price)}
                     </span>
                   </div>

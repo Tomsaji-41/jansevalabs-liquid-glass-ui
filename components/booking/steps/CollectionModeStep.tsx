@@ -18,8 +18,8 @@ export default function CollectionModeStep({ data, onNext, onBack }: Props) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-bold text-[#0B1F4E] mb-1">Collection Method</h2>
-        <p className="text-sm text-slate-500">How would you like to give your sample?</p>
+        <h2 className="text-xl font-bold text-white/95 mb-1">Collection Method</h2>
+        <p className="text-sm text-white/60">How would you like to give your sample?</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -46,7 +46,7 @@ export default function CollectionModeStep({ data, onNext, onBack }: Props) {
               "relative text-left p-5 rounded-2xl border-2 transition-all duration-200",
               mode === value
                 ? "border-[#0D9488] bg-teal-50 shadow-teal-glow"
-                : "border-border bg-white hover:border-slate-300"
+                : "border-white/20 bg-white/5 backdrop-blur-md hover:border-slate-300"
             )}
           >
             {badge && (
@@ -57,15 +57,15 @@ export default function CollectionModeStep({ data, onNext, onBack }: Props) {
             <div
               className={cn(
                 "w-11 h-11 rounded-xl flex items-center justify-center mb-3",
-                mode === value ? "bg-white border border-teal-100" : "bg-surface border border-border"
+                mode === value ? "bg-white/5 backdrop-blur-md border border-teal-100" : "relative z-10 border border-white/20"
               )}
             >
-              <Icon className={cn("w-5 h-5", mode === value ? "text-[#0D9488]" : "text-slate-500")} />
+              <Icon className={cn("w-5 h-5", mode === value ? "text-[#0D9488]" : "text-white/60")} />
             </div>
-            <h3 className={cn("font-semibold mb-1", mode === value ? "text-[#0B1F4E]" : "text-slate-700")}>
+            <h3 className={cn("font-semibold mb-1", mode === value ? "text-white/95" : "text-white/80")}>
               {title}
             </h3>
-            <p className="text-xs text-slate-500 leading-relaxed">{description}</p>
+            <p className="text-xs text-white/60 leading-relaxed">{description}</p>
           </button>
         ))}
       </div>

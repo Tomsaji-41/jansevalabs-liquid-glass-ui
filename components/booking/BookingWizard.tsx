@@ -55,7 +55,7 @@ export default function BookingWizard() {
                     ? "bg-[#0D9488] text-white"
                     : i === step
                     ? "bg-[#0B1F4E] text-white ring-4 ring-navy-100"
-                    : "bg-white border-2 border-border text-slate-400"
+                    : "bg-white/5 backdrop-blur-md border-2 border-white/20 text-white/50"
                 )}
               >
                 {i < step ? <Check className="w-4 h-4" /> : i + 1}
@@ -63,7 +63,7 @@ export default function BookingWizard() {
               <span
                 className={cn(
                   "text-[11px] mt-1.5 font-medium hidden sm:block",
-                  i === step ? "text-[#0B1F4E]" : "text-slate-400"
+                  i === step ? "text-white/95" : "text-white/50"
                 )}
               >
                 {s.label}
@@ -82,7 +82,7 @@ export default function BookingWizard() {
       </div>
 
       {/* Step content */}
-      <div className="bg-white rounded-2xl border border-border shadow-card p-6 md:p-8">
+      <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl p-6 md:p-8">
         {step === 0 && (
           <PincodeStep data={data} onNext={(d) => { update(d); next(); }} />
         )}

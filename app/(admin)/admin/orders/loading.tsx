@@ -9,9 +9,9 @@ export default function OrdersLoading() {
         <Skeleton className="h-4 w-56 mt-2" />
       </div>
 
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardContent className="p-0">
-          <div className="px-4 py-3 border-b border-border bg-surface grid grid-cols-9 gap-3">
+          <div className="px-4 py-3 border-b border-white/20 relative z-10 grid grid-cols-9 gap-3">
             {Array.from({ length: 9 }).map((_, i) => (
               <Skeleton key={i} className="h-3 w-full" />
             ))}

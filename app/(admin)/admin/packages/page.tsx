@@ -22,8 +22,8 @@ export default async function AdminPackagesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0B1F4E]">Packages</h1>
-          <p className="text-slate-500 mt-1 text-sm">Manage health packages and bundled test pricing.</p>
+          <h1 className="text-2xl font-bold text-white/95">Packages</h1>
+          <p className="text-white/60 mt-1 text-sm">Manage health packages and bundled test pricing.</p>
         </div>
         <Link
           href="/admin/packages/new"
@@ -42,10 +42,10 @@ export default async function AdminPackagesPage() {
           { label: "Inactive", value: allPackages.filter((p) => !p.isActive).length },
           { label: "Featured", value: allPackages.filter((p) => p.isPopular).length },
         ].map(({ label, value }) => (
-          <Card key={label} className="border-border shadow-card">
+          <Card key={label} className="border-white/20 shadow-xl">
             <CardContent className="p-5">
-              <p className="text-2xl font-bold text-[#0B1F4E]">{value}</p>
-              <p className="text-xs text-slate-500 mt-0.5">{label}</p>
+              <p className="text-2xl font-bold text-white/95">{value}</p>
+              <p className="text-xs text-white/60 mt-0.5">{label}</p>
             </CardContent>
           </Card>
         ))}
@@ -59,9 +59,9 @@ export default async function AdminPackagesPage() {
       )}
 
       {/* Table */}
-      <Card className="border-border shadow-card">
+      <Card className="border-white/20 shadow-xl">
         <CardHeader>
-          <CardTitle className="text-base font-semibold text-[#0B1F4E] flex items-center gap-2">
+          <CardTitle className="text-base font-semibold text-white/95 flex items-center gap-2">
             <Package className="w-4 h-4" />
             All Packages
           </CardTitle>
@@ -70,9 +70,9 @@ export default async function AdminPackagesPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-border text-left">
+                <tr className="border-b border-white/20 text-left">
                   {["Name", "MRP", "Selling Price", "Discount", "Status", "Actions"].map((h) => (
-                    <th key={h} className="pb-3 font-semibold text-slate-500 text-xs uppercase tracking-wide pr-4">{h}</th>
+                    <th key={h} className="pb-3 font-semibold text-white/60 text-xs uppercase tracking-wide pr-4">{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -82,25 +82,25 @@ export default async function AdminPackagesPage() {
                     ? Math.round((1 - pkg.discountedPrice / pkg.price) * 100)
                     : 0;
                   return (
-                    <tr key={pkg.id} className="hover:bg-surface transition-colors">
+                    <tr key={pkg.id} className="hover:relative z-10 transition-colors">
                       <td className="py-3 pr-4">
                         <div className="flex items-center gap-2">
-                          <span className="font-semibold text-slate-800">{pkg.name}</span>
+                          <span className="font-semibold text-white/90">{pkg.name}</span>
                           {pkg.isPopular && (
                             <Star className="w-3.5 h-3.5 text-[#F47920] fill-[#F47920]" />
                           )}
                         </div>
-                        <p className="text-xs text-slate-400 font-mono">{pkg.slug}</p>
+                        <p className="text-xs text-white/50 font-mono">{pkg.slug}</p>
                       </td>
-                      <td className="py-3 pr-4 text-slate-400 line-through text-xs">{formatPrice(pkg.price)}</td>
-                      <td className="py-3 pr-4 font-semibold text-[#0B1F4E]">
+                      <td className="py-3 pr-4 text-white/50 line-through text-xs">{formatPrice(pkg.price)}</td>
+                      <td className="py-3 pr-4 font-semibold text-white/95">
                         {formatPrice(pkg.discountedPrice ?? pkg.price)}
                       </td>
                       <td className="py-3 pr-4">
                         {disc > 0 ? (
                           <Badge className="bg-orange-50 text-orange-600 border-orange-100 border text-xs">{disc}%</Badge>
                         ) : (
-                          <span className="text-xs text-slate-400">—</span>
+                          <span className="text-xs text-white/50">—</span>
                         )}
                       </td>
                       <td className="py-3 pr-4">
@@ -109,7 +109,7 @@ export default async function AdminPackagesPage() {
                             <CheckCircle className="w-3.5 h-3.5" /> Active
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 text-xs text-slate-400 font-medium">
+                          <span className="inline-flex items-center gap-1 text-xs text-white/50 font-medium">
                             <XCircle className="w-3.5 h-3.5" /> Inactive
                           </span>
                         )}

@@ -72,16 +72,7 @@ export default function Hero() {
     }, 800);
   };
   return (
-    <section className="relative overflow-hidden border-b border-border/20">
-      {/* Generated abstract background image */}
-      <div 
-        className="absolute inset-0 z-0 opacity-40 mix-blend-overlay"
-        style={{
-          backgroundImage: "url('/images/bg.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}
-      />
+    <section className="relative overflow-hidden border-b border-white/20/20">
 
       {/* ── Content ── */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
@@ -202,9 +193,9 @@ export default function Hero() {
               <button
                 onClick={prev}
                 aria-label="Previous slide"
-                className="w-8 h-8 rounded-full bg-white border border-border shadow-sm flex items-center justify-center hover:bg-slate-50 transition-colors"
+                className="w-8 h-8 rounded-full bg-white/5 backdrop-blur-md border border-white/20 shadow-sm flex items-center justify-center hover:bg-white/5 transition-colors"
               >
-                <ChevronLeft className="w-4 h-4 text-slate-500" />
+                <ChevronLeft className="w-4 h-4 text-white/60" />
               </button>
               <div className="flex gap-1.5">
                 {SLIDES.map((s, i) => (
@@ -224,11 +215,11 @@ export default function Hero() {
               <button
                 onClick={next}
                 aria-label="Next slide"
-                className="w-8 h-8 rounded-full bg-white border border-border shadow-sm flex items-center justify-center hover:bg-slate-50 transition-colors"
+                className="w-8 h-8 rounded-full bg-white/5 backdrop-blur-md border border-white/20 shadow-sm flex items-center justify-center hover:bg-white/5 transition-colors"
               >
-                <ChevronRight className="w-4 h-4 text-slate-500" />
+                <ChevronRight className="w-4 h-4 text-white/60" />
               </button>
-              <span className="text-xs text-slate-400 ml-1">{slide.label}</span>
+              <span className="text-xs text-white/50 ml-1">{slide.label}</span>
             </div>
           </div>
 
