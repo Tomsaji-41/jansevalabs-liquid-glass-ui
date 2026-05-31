@@ -26,12 +26,12 @@ export default function SiteHeader() {
     <header 
       className="sticky top-0 z-50 transition-colors"
       style={{
-        background: "rgba(255, 255, 255, 0.08)",
+        background: "rgba(255, 255, 255, 0.12)",
         backdropFilter: "blur(40px) saturate(180%) brightness(1.1)",
         WebkitBackdropFilter: "blur(40px) saturate(180%) brightness(1.1)",
         border: "1px solid rgba(255, 255, 255, 0.25)",
         borderTop: "1px solid rgba(255, 255, 255, 0.45)",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
         boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.1), 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12)",
       }}
     >
@@ -91,23 +91,43 @@ export default function SiteHeader() {
               </SheetContent>
             </Sheet>
 
-            <Link
-              href="/sign-in"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "sm" }),
-                "hidden sm:inline-flex"
-              )}
-              style={{
-                background: "rgba(255,255,255,0.07)",
-                border: "1px solid rgba(255,255,255,0.18)",
-                borderRadius: "12px",
-                color: "rgba(255,255,255,0.9)",
-                backdropFilter: "blur(10px)",
-                WebkitBackdropFilter: "blur(10px)",
-              }}
-            >
-              Sign In
-            </Link>
+            <div className="hidden sm:flex items-center gap-2">
+              <Link
+                href="/sign-in"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "sm" }),
+                )}
+                style={{
+                  background: "rgba(255, 255, 255, 0.12)",
+                  border: "1px solid rgba(255, 255, 255, 0.12)",
+                  borderRadius: "12px",
+                  color: "rgba(255,255,255,0.9)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                }}
+              >
+                Login
+              </Link>
+
+              <Link
+                href="/sign-up"
+                className={cn(
+                  buttonVariants({ size: "sm" }),
+                )}
+                style={{
+                  background: "rgba(29,158,117,0.55)",
+                  border: "1px solid rgba(255,255,255,0.30)",
+                  borderTop: "1px solid rgba(255,255,255,0.50)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 16px rgba(0,0,0,0.2)",
+                  borderRadius: "12px",
+                  color: "rgba(255,255,255,0.95)"
+                }}
+              >
+                Sign Up
+              </Link>
+            </div>
 
             <Link
               href="/book"

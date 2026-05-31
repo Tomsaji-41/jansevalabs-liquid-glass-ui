@@ -18,8 +18,8 @@ export default function CollectionModeStep({ data, onNext, onBack }: Props) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-bold text-white/95 mb-1">Collection Method</h2>
-        <p className="text-sm text-white/60">How would you like to give your sample?</p>
+        <h2 className="text-xl font-bold text-blue-900 mb-1">Collection Method</h2>
+        <p className="text-sm text-blue-600">How would you like to give your sample?</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -60,18 +60,18 @@ export default function CollectionModeStep({ data, onNext, onBack }: Props) {
                 mode === value ? "bg-white/5 backdrop-blur-md border border-teal-100" : "relative z-10 border border-white/20"
               )}
             >
-              <Icon className={cn("w-5 h-5", mode === value ? "text-[#0D9488]" : "text-white/60")} />
+              <Icon className={cn("w-5 h-5", mode === value ? "text-[#0D9488]" : "text-blue-600")} />
             </div>
-            <h3 className={cn("font-semibold mb-1", mode === value ? "text-white/95" : "text-white/80")}>
+            <h3 className={cn("font-semibold mb-1", mode === value ? "text-blue-900" : "text-blue-800")}>
               {title}
             </h3>
-            <p className="text-xs text-white/60 leading-relaxed">{description}</p>
+            <p className="text-xs text-blue-600 leading-relaxed">{description}</p>
           </button>
         ))}
       </div>
 
       <div className="flex gap-3">
-        <Button variant="outline" onClick={onBack} className="flex items-center gap-2">
+        <Button variant="outline" onClick={onBack} className="flex items-center gap-2 text-black">
           <ArrowLeft className="w-4 h-4" /> Back
         </Button>
         <Button

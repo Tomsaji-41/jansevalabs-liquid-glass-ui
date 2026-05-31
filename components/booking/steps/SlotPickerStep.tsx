@@ -42,8 +42,8 @@ export default function SlotPickerStep({ data, onNext, onBack }: Props) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-bold text-white/95 mb-1">Choose Date & Time</h2>
-        <p className="text-sm text-white/60">
+        <h2 className="text-xl font-bold text-blue-900 mb-1">Choose Date & Time</h2>
+        <p className="text-sm text-blue-600">
           {data.collectionMode === "home"
             ? "Select when you'd like our phlebotomist to visit."
             : "Select your preferred walk-in date and time."}
@@ -52,7 +52,7 @@ export default function SlotPickerStep({ data, onNext, onBack }: Props) {
 
       {/* Date picker */}
       <div>
-        <p className="text-sm font-semibold text-white/80 mb-3">Select Date</p>
+        <p className="text-sm font-semibold text-blue-800 mb-3">Select Date</p>
         <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
           {days.map((day) => (
             <button
@@ -62,11 +62,11 @@ export default function SlotPickerStep({ data, onNext, onBack }: Props) {
                 "flex-none flex flex-col items-center px-4 py-3 rounded-xl border-2 text-sm font-medium transition-all min-w-[72px]",
                 selectedDate === day.value
                   ? "border-[#0D9488] bg-teal-50 text-[#0D9488]"
-                  : "border-white/20 bg-white/5 backdrop-blur-md text-white/70 hover:border-slate-300"
+                  : "border-white/20 bg-white/5 backdrop-blur-md text-blue-700 hover:border-slate-300"
               )}
             >
               {day.label.split(" ").map((part, i) => (
-                <span key={i} className={i === 0 ? "text-xs text-white/50 font-normal" : "font-semibold"}>
+                <span key={i} className={i === 0 ? "text-xs text-blue-500 font-normal" : "font-semibold"}>
                   {part}
                 </span>
               ))}
@@ -78,7 +78,7 @@ export default function SlotPickerStep({ data, onNext, onBack }: Props) {
       {/* Time slots */}
       {selectedDate && (
         <div>
-          <p className="text-sm font-semibold text-white/80 mb-3 flex items-center gap-2">
+          <p className="text-sm font-semibold text-blue-800 mb-3 flex items-center gap-2">
             <Clock className="w-4 h-4 text-[#0D9488]" />
             Available Slots
           </p>
@@ -91,7 +91,7 @@ export default function SlotPickerStep({ data, onNext, onBack }: Props) {
                   "px-3 py-2.5 rounded-xl border-2 text-sm font-medium text-center transition-all",
                   selectedSlot === slot
                     ? "border-[#0D9488] bg-teal-50 text-[#0D9488]"
-                    : "border-white/20 bg-white/5 backdrop-blur-md text-white/70 hover:border-slate-300"
+                    : "border-white/20 bg-white/5 backdrop-blur-md text-blue-700 hover:border-slate-300"
                 )}
               >
                 {slot}
@@ -102,7 +102,7 @@ export default function SlotPickerStep({ data, onNext, onBack }: Props) {
       )}
 
       <div className="flex gap-3">
-        <Button variant="outline" onClick={onBack} className="flex items-center gap-2">
+        <Button variant="outline" onClick={onBack} className="flex items-center gap-2 text-black">
           <ArrowLeft className="w-4 h-4" /> Back
         </Button>
         <Button

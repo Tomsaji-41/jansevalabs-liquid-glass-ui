@@ -85,12 +85,12 @@ export default function Hero() {
               <div 
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1"
                 style={{
-                  background: "rgba(255, 255, 255, 0.08)",
+                  background: "rgba(255, 255, 255, 0.12)",
                   backdropFilter: "blur(20px) saturate(180%) brightness(1.1)",
                   WebkitBackdropFilter: "blur(20px) saturate(180%) brightness(1.1)",
                   border: "1px solid rgba(255, 255, 255, 0.25)",
                   borderTop: "1px solid rgba(255, 255, 255, 0.45)",
-                  borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.12)",
                 }}
               >
@@ -105,7 +105,7 @@ export default function Hero() {
                   slide.tagClass
                 )}
                 style={{
-                  background: "rgba(255, 255, 255, 0.05)",
+                  background: "rgba(255, 255, 255, 0.12)",
                   backdropFilter: "blur(10px)",
                   WebkitBackdropFilter: "blur(10px)",
                 }}
@@ -154,8 +154,8 @@ export default function Hero() {
                   buttonVariants({ variant: "outline", size: "default" })
                 )}
                 style={{
-                  background: "rgba(255,255,255,0.07)",
-                  border: "1px solid rgba(255,255,255,0.18)",
+                  background: "rgba(255, 255, 255, 0.12)",
+                  border: "1px solid rgba(255, 255, 255, 0.12)",
                   borderRadius: "14px",
                   color: "rgba(255,255,255,0.9)",
                   backdropFilter: "blur(10px)",
@@ -173,8 +173,8 @@ export default function Hero() {
                   <div 
                     className="w-9 h-9 rounded-lg flex items-center justify-center shadow-sm"
                     style={{
-                      background: "rgba(255, 255, 255, 0.08)",
-                      border: "1px solid rgba(255, 255, 255, 0.15)",
+                      background: "rgba(255, 255, 255, 0.12)",
+                      border: "1px solid rgba(255, 255, 255, 0.12)",
                       backdropFilter: "blur(10px)",
                     }}
                   >
@@ -233,7 +233,7 @@ export default function Hero() {
                 WebkitBackdropFilter: "blur(40px) saturate(180%) brightness(1.1)",
                 border: "1px solid rgba(255, 255, 255, 0.25)",
                 borderTop: "1px solid rgba(255, 255, 255, 0.45)",
-                borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+                borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
                 boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.1), 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12)",
                 borderRadius: "20px"
               }}
@@ -247,7 +247,7 @@ export default function Hero() {
                   className="flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-medium flex-1 justify-center"
                   style={{
                     background: "rgba(29,158,117,0.12)",
-                    border: "1px solid rgba(255,255,255,0.15)",
+                    border: "1px solid rgba(255, 255, 255, 0.12)",
                     color: "rgba(255,255,255,0.9)"
                   }}
                 >
@@ -258,7 +258,7 @@ export default function Hero() {
                   className="flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-medium flex-1 justify-center"
                   style={{
                     background: "rgba(24,95,165,0.12)",
-                    border: "1px solid rgba(255,255,255,0.15)",
+                    border: "1px solid rgba(255, 255, 255, 0.12)",
                     color: "rgba(255,255,255,0.9)"
                   }}
                 >

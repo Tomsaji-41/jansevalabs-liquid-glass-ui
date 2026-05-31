@@ -55,7 +55,7 @@ export default function BookingWizard() {
                     ? "bg-[#0D9488] text-white"
                     : i === step
                     ? "bg-[#0B1F4E] text-white ring-4 ring-navy-100"
-                    : "bg-white/5 backdrop-blur-md border-2 border-white/20 text-white/50"
+                    : "bg-white/5 backdrop-blur-md border-2 border-white/20 text-blue-500"
                 )}
               >
                 {i < step ? <Check className="w-4 h-4" /> : i + 1}
@@ -63,7 +63,7 @@ export default function BookingWizard() {
               <span
                 className={cn(
                   "text-[11px] mt-1.5 font-medium hidden sm:block",
-                  i === step ? "text-white/95" : "text-white/50"
+                  i === step ? "text-blue-900" : "text-blue-500"
                 )}
               >
                 {s.label}

@@ -35,8 +35,8 @@ export default function PatientDetailsStep({ data, onNext, onBack }: Props) {
   return (
     <div className="space-y-5">
       <div>
-        <h2 className="text-xl font-bold text-white/95 mb-1">Patient Details</h2>
-        <p className="text-sm text-white/60">We need these details to send your report.</p>
+        <h2 className="text-xl font-bold text-blue-900 mb-1">Patient Details</h2>
+        <p className="text-sm text-blue-600">We need these details to send your report.</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -90,7 +90,7 @@ export default function PatientDetailsStep({ data, onNext, onBack }: Props) {
                 className={`flex-1 py-2 rounded-lg border text-sm font-medium transition-all ${
                   form.patientGender === g
                     ? "border-[#0D9488] bg-teal-50 text-[#0D9488]"
-                    : "border-white/20 bg-white/5 backdrop-blur-md text-white/70 hover:border-slate-300"
+                    : "border-white/20 bg-white/5 backdrop-blur-md text-blue-700 hover:border-slate-300"
                 }`}
               >
                 {g}
@@ -114,7 +114,7 @@ export default function PatientDetailsStep({ data, onNext, onBack }: Props) {
       )}
 
       <div className="flex gap-3">
-        <Button variant="outline" onClick={onBack} className="flex items-center gap-2">
+        <Button variant="outline" onClick={onBack} className="flex items-center gap-2 text-black">
           <ArrowLeft className="w-4 h-4" /> Back
         </Button>
         <Button

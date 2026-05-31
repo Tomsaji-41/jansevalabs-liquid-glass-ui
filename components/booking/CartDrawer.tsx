@@ -47,13 +47,13 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
           <ShoppingCart className="w-9 h-9 text-[#2DB549]" />
         </div>
         <div>
-          <h3 className="font-semibold text-white/90 text-lg">Your cart is empty</h3>
-          <p className="text-sm text-white/60 mt-1">Add tests to get started</p>
+          <h3 className="font-semibold text-blue-900 text-lg">Your cart is empty</h3>
+          <p className="text-sm text-blue-600 mt-1">Add tests to get started</p>
         </div>
 
         {/* Popular picks when empty */}
         <div className="w-full mt-2">
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-widest mb-3">Popular picks</p>
+          <p className="text-xs font-semibold text-blue-500 uppercase tracking-widest mb-3">Popular picks</p>
           <div className="space-y-2">
             {SUGGESTION_POOL.slice(0, 3).map((s) => (
               <div
@@ -61,7 +61,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
                 className="flex items-center justify-between p-3 rounded-xl bg-[#2DB549]/10 border border-[#2DB549]/15"
               >
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-white/90 truncate">{s.name}</p>
+                  <p className="text-sm font-medium text-blue-900 truncate">{s.name}</p>
                   <p className="text-xs text-[#2DB549] font-semibold mt-0.5">{formatPrice(s.discountedPrice!)}</p>
                 </div>
                 <button
@@ -69,7 +69,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
                   className="ml-2 w-8 h-8 rounded-lg bg-[#2DB549] hover:bg-[#25A03F] flex items-center justify-center transition-colors shrink-0"
                   aria-label={`Add ${s.name}`}
                 >
-                  <Plus className="w-4 h-4 text-white" />
+                  <Plus className="w-4 h-4 text-blue-900" />
                 </button>
               </div>
             ))}
@@ -91,8 +91,8 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
     <div className="flex flex-col h-full">
       {/* Header */}
       <div className="px-6 py-5 border-b border-white/20">
-        <h2 className="font-semibold text-white/90 text-lg">Your Cart</h2>
-        <p className="text-sm text-white/60 mt-0.5">
+        <h2 className="font-semibold text-blue-900 text-lg">Your Cart</h2>
+        <p className="text-sm text-blue-600 mt-0.5">
           {count} {count === 1 ? "item" : "items"} added
         </p>
       </div>
@@ -115,12 +115,12 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
                     {item.type}
                   </Badge>
                   {item.code && (
-                    <span className="text-[10px] font-mono text-white/50">
+                    <span className="text-[10px] font-mono text-blue-500">
                       {item.code}
                     </span>
                   )}
                 </div>
-                <p className="text-sm font-medium text-white/90 leading-tight">
+                <p className="text-sm font-medium text-blue-900 leading-tight">
                   {item.name}
                 </p>
                 <div className="flex items-center gap-2 mt-1">
@@ -129,7 +129,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
                       <span className="text-sm font-semibold text-[#2DB549]">
                         {formatPrice(item.discountedPrice)}
                       </span>
-                      <span className="text-xs text-white/50 line-through">
+                      <span className="text-xs text-blue-500 line-through">
                         {formatPrice(item.price)}
                       </span>
                     </>
@@ -142,7 +142,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
               </div>
               <button
                 onClick={() => removeItem(item.id, item.type)}
-                className="text-white/50 hover:text-red-500 transition-colors p-1 rounded-lg hover:bg-red-50 mt-0.5"
+                className="text-blue-500 hover:text-red-500 transition-colors p-1 rounded-lg hover:bg-red-50 mt-0.5"
                 aria-label="Remove item"
               >
                 <Trash2 className="w-4 h-4" />
@@ -156,7 +156,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
               {/* Divider heading */}
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="w-3.5 h-3.5 text-[#F47920]" />
-                <span className="text-xs font-semibold text-white/60 uppercase tracking-widest">
+                <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">
                   You might also need
                 </span>
               </div>
@@ -179,7 +179,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
 
                       {/* Info */}
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-white/90 leading-tight truncate">
+                        <p className="text-sm font-medium text-blue-900 leading-tight truncate">
                           {s.name}
                         </p>
                         <div className="flex items-center gap-2 mt-0.5">
@@ -192,7 +192,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
                             </Badge>
                           )}
                           {ta && (
-                            <span className="text-[10px] text-white/50 flex items-center gap-0.5">
+                            <span className="text-[10px] text-blue-500 flex items-center gap-0.5">
                               <Clock className="w-2.5 h-2.5" />
                               {ta}
                             </span>
@@ -206,7 +206,7 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
                         className="w-8 h-8 rounded-lg bg-[#2DB549] hover:bg-[#25A03F] flex items-center justify-center transition-colors shrink-0 shadow-sm"
                         aria-label={`Add ${s.name} to cart`}
                       >
-                        <Plus className="w-4 h-4 text-white" />
+                        <Plus className="w-4 h-4 text-blue-900" />
                       </button>
                     </div>
                   );
@@ -229,8 +229,8 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
       {/* Footer */}
       <div className="px-6 py-5 border-t border-white/20 space-y-4 bg-white/5 backdrop-blur-md">
         <div className="flex items-center justify-between">
-          <span className="text-sm text-white/60">Total</span>
-          <span className="text-xl font-bold text-white/95">
+          <span className="text-sm text-blue-600">Total</span>
+          <span className="text-xl font-bold text-blue-900">
             {formatPrice(total)}
           </span>
         </div>
@@ -239,13 +239,13 @@ export default function CartDrawer({ onClose }: CartDrawerProps) {
           onClick={onClose}
           className={cn(
             buttonVariants(),
-            "w-full bg-[#EA580C] hover:bg-[#C2410C] text-white h-12 text-base font-semibold flex items-center justify-center gap-2 shadow-orange-glow"
+            "w-full bg-[#EA580C] hover:bg-[#C2410C] text-blue-900 h-12 text-base font-semibold flex items-center justify-center gap-2 shadow-orange-glow"
           )}
         >
           Proceed to Book
           <ArrowRight className="w-4 h-4" />
         </Link>
-        <p className="text-center text-xs text-white/50">
+        <p className="text-center text-xs text-blue-500">
           Home collection available · No hidden charges
         </p>
       </div>

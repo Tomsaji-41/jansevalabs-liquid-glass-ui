@@ -33,12 +33,12 @@ export default function CoverageChecker() {
           <div 
             className="rounded-2xl p-6"
             style={{
-              background: "rgba(255, 255, 255, 0.10)",
+              background: "rgba(255, 255, 255, 0.12)",
               backdropFilter: "blur(40px) saturate(180%) brightness(1.1)",
               WebkitBackdropFilter: "blur(40px) saturate(180%) brightness(1.1)",
               border: "1px solid rgba(255, 255, 255, 0.25)",
               borderTop: "1px solid rgba(255, 255, 255, 0.45)",
-              borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+              borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
               boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.1), 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12)",
             }}
           >

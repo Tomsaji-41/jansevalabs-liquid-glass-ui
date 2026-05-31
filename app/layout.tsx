@@ -54,11 +54,20 @@ export default function RootLayout({
         <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
           {/* Abstract Image Background Overlay */}
           <div 
-            className="absolute inset-0 z-0 opacity-30 mix-blend-overlay"
+            className="absolute inset-0 z-0 opacity-40 mix-blend-overlay"
             style={{
-              backgroundImage: "url('/images/bg.png')",
+              backgroundImage: "url('/images/healthcare_bg_1.png')",
               backgroundSize: "cover",
               backgroundPosition: "center"
+            }}
+          />
+          <div 
+            className="absolute inset-0 z-0 opacity-20 mix-blend-screen"
+            style={{
+              backgroundImage: "url('/images/healthcare_bg_2.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              animation: "pulse 10s infinite"
             }}
           />
           <div className="orb" style={{ top: "10%", left: "20%", width: "40vw", height: "40vw", backgroundColor: "#1D9E75" }} />
